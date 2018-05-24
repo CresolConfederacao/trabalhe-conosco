@@ -4,7 +4,7 @@
 
 - [Sobre o desafio](#sobre-o-desafio)
 - [Como participar?](#como-participar)
-- [Quais os próximos passos?](#quais-os-proximos-passos)
+- [Quais os próximos passos?](#quais-os-próximos-passos)
 - [Analista de Sistemas](#analista-de-sistemas)
 
 ## Sobre o desafio
