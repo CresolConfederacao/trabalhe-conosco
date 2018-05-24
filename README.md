@@ -3,11 +3,25 @@
 ## Sumário
 
 - [Sobre o desafio](#sobre-o-desafio)
+- [Como participar?](#como-participar)
+- [Quais os próximos passos?](#quais-os-proximos-passos)
 - [Analista de Sistemas](#analista-de-sistemas)
 
 ## Sobre o desafio
 
 Criamos esse desafio como a primeira parte para o processo de seleção de analista de sistemas para a Cresol Confederação (Conheça mais sobre nós em nosso [site](http://www.cresolconfederacao.com.br)).
+
+### Como participar?
+
+* Faça um fork, preferencialmente privado, desse projeto no Github ou no Bitbucket
+* Leia atentamente o enunciado abaixo sobre o problema que você deve resolver
+* Produza os artefatos citados no item *O que você deve entregar?*
+* Submeta através de um *Pull Request* neste repositório juntamente com seu currículo para avaliação
+
+### Quais os próximos passos?
+
+* Avaliaremos os artefatos submetidos juntamente com seu currículo
+* Faremos contato para dar feedback sobre o processo
 
 ## Analista de Sistemas
 
@@ -21,18 +35,6 @@ Criamos esse desafio como a primeira parte para o processo de seleção de anali
 * Diagramação com UML
 * Transferência de conhecimento
 * Revisão de artefatos, como por exemplo caso de uso, caso de teste
-
-### Como participar?
-
-* Faça um fork, preferencialmente privado, desse projeto no Github ou no Bitbucket
-* Leia atentamente o enunciado abaixo sobre o problema que você deve resolver
-* Produza os artefatos citados no item *O que você deve entregar?*
-* Submeta através de um *Pull Request* neste repositório juntamente com seu currículo para avaliação
-
-### Quais os próximos passos?
-
-* Avaliaremos os artefatos submetidos juntamente com seu currículo
-* Faremos contato para dar feedback sobre o processo
 
 ### Qual o problema que você deve resolver?
 
