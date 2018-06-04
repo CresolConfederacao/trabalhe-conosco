@@ -61,7 +61,7 @@ Você pode utilizar outros artefatos que possam ajudar e complementar a expressa
 
 ### Desenvolvedor front-end
 
-#### O que você vai fazer como analista de sistemas na Cresol Confederação?
+#### O que você vai fazer como desenvolvedor front-end na Cresol Confederação?
 
 * Desenvolvimento de protótipo de página web
   - Baseado em caso de uso e/ou wireframe
