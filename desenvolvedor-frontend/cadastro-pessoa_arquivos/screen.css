@@ -1,0 +1,135 @@
+.imgBotaoPesquisa {
+	height: 18px;
+    width : 18px;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+    vertical-align: middle;
+}
+
+.body_login {
+	background-color:#FFFFFF;
+	margin:0px;
+	padding:0px;
+}
+#login_cabec {
+	background-image:url('images/back_cabecalho_login.jpg');
+	background-repeat:no-repeat;
+	display:block;
+	width:640px;
+	height:51px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-320px;
+	margin-top:-116px;
+}
+.login_corpo {
+	background-image:  url('../images/login.jpg');
+	background-repeat:repeat-x;
+	height:420px;
+	width:700px;
+	display: block;
+	position:absolute;
+	left:50%;
+	top:35%;
+	margin-left:-360px;
+	margin-top:-130px;
+}
+
+#cabecalho td {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FFFFFF;
+	padding-right:5px;
+}
+#cabecalho td a {
+	color:#FFFFFF;
+	text-decoration:none;
+}
+#cabecalho td a:hover {
+	text-decoration:underline;
+}
+#cabecalho .usercabec {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	font-weight:bold;
+	color:#FFFFFF;
+	padding-right:5px;
+}
+
+
+form {
+	margin: 0px;
+	padding: 0px;
+}
+input,button {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-transform: uppercase; 
+}
+
+input[type="password"] {
+	text-transform: none !important;
+	
+}
+
+@font-face {
+    font-family: 'password_dotsregular';
+    src: url(data:application/x-font-woff;charset=utf-8;base64,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) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+input[type="passwordColmeia"] {
+	text-transform: none;
+	font-family: password_dotsregular;
+	letter-spacing: -3px;
+}
+
+select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-transform: uppercase; 
+}
+textarea {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-transform: uppercase; 
+}
+
+
+/* login alternativo */
+
+TABLE.login_alternativo {
+background-color:#E3DDC6;
+display:block;
+color:#000000;
+border: 2px solid #9C8D4C;
+position: relative;
+width: 270px;
+top: 70px;
+left:230px;
+z-index:15000;
+}
+
+TABLE.login_alternativo_interno {
+background-color:#E3DDC6;
+color:#FFFFFF;
+width:263px;
+}
+
+TD.login_titulo{
+font-weight: bold;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+padding: 0px;
+}
+
+TD.login_alternativo_mensagem{
+color:#000000;
+font-weight: bold;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+}
+/* fim */

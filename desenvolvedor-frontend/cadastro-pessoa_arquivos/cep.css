@@ -1,0 +1,21 @@
+.box {
+	border: 1px solid black;
+	padding: 2px;
+}
+.hover {
+	font-family: sans-serif;
+	font-size: xx-small;
+	background-color: lightblue;
+}
+.normal {
+	font-family: sans-serif;
+	font-size: xx-small;
+	background-color: white;
+}
+.lista {
+	font-family: sans-serif;
+	font-size: xx-small;	
+	border: black 1px solid;
+	background-color: white;
+	width: 300px;
+}

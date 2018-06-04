@@ -1,0 +1,2736 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Colmeia</title>
+<meta charset="ISO-8859-1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="cadastro-pessoa_arquivos/prototype.js"></script>
+<script src="cadastro-pessoa_arquivos/jquery-1.js"></script>
+<script src="cadastro-pessoa_arquivos/shortcut.js"></script>
+<script src="cadastro-pessoa_arquivos/processamento.js"></script>
+<script src="cadastro-pessoa_arquivos/maisinfo.js"></script>
+<script src="cadastro-pessoa_arquivos/windowopen.js"></script>
+<script src="cadastro-pessoa_arquivos/validator.js"></script>
+<script src="cadastro-pessoa_arquivos/calendarpopup.js"></script>
+<script src="cadastro-pessoa_arquivos/pesquisa.js"></script>
+<script src="cadastro-pessoa_arquivos/config.js"></script>
+<script src="cadastro-pessoa_arquivos/matricula.js"></script>
+<script src="cadastro-pessoa_arquivos/javawebstart.js"></script>
+<script src="cadastro-pessoa_arquivos/ajuda.js"></script>
+<script src="cadastro-pessoa_arquivos/dragdrop.js"></script>
+<script src="cadastro-pessoa_arquivos/dhtmlxcommon.js"></script>
+<script src="cadastro-pessoa_arquivos/dhtmlxtabbar.js"></script>
+<script src="cadastro-pessoa_arquivos/dhtmlxcontainer.js"></script>
+<script src="cadastro-pessoa_arquivos/jquery_002.js"></script>
+<script src="cadastro-pessoa_arquivos/jqClock.js"></script>
+<script src="cadastro-pessoa_arquivos/jquery.js"></script>
+<script src="cadastro-pessoa_arquivos/impressora-util.js"></script>
+<script src="cadastro-pessoa_arquivos/tiff.js"></script>
+
+<link href="cadastro-pessoa_arquivos/default.css" rel="stylesheet" type="text/css">
+<link href="cadastro-pessoa_arquivos/screen.css" rel="stylesheet" type="text/css">
+<link href="cadastro-pessoa_arquivos/main.css" rel="stylesheet" type="text/css">
+<link href="cadastro-pessoa_arquivos/pesquisa.css" rel="stylesheet" type="text/css">
+<link href="cadastro-pessoa_arquivos/cep.css" rel="stylesheet" type="text/css">
+<link href="cadastro-pessoa_arquivos/popup.css" rel="stylesheet" type="text/css">
+<link href="cadastro-pessoa_arquivos/dhtmlxtabbar.css" rel="stylesheet" type="text/css">
+<link href="cadastro-pessoa_arquivos/tipsy.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+			
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+	
+	
+
+		
+		
+		
+
+
+
+
+
+
+	
+
+	
+
+
+
+	
+	
+	
+						
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var abrirPopup;
+  var exc;
+
+
+
+
+  abrirPopup = "false";
+
+
+
+var linhaTabela = -1;
+
+if(document.all){
+	document.onkeydown = acaoKeyDownPress;
+}else if (document.layers || document.getElementById){
+	document.onkeypress = acaoKeyDownPress;
+}
+
+function abrirAtendimentoAssociado() {
+	var action = '/exibir_manter_atendimento_associado.do';
+	try{
+		parent.areaAplicacao.adicionaAba('/colmeia' + action, 'Consulta de Atendimento ao Associado');
+	} catch (e) {
+		parent.parent.areaAplicacao.adicionaAba('/colmeia' + action, 'Consulta de Atendimento ao Associado');
+	}
+}
+
+shortcut.add("ctrl+1",function() {
+	abrirMenuSentinela('/colmeia/exibir_manter_consulta_saldo_contabil.do','Contabilidade > Movimentos Contábeis > Consultar Saldo','Consultar Saldo por Conta Contábil');
+});
+
+shortcut.add("ctrl+1",function() {
+	abrirMenuSentinela('/colmeia/exibir_manter_consulta_saldo_contabil.do','Contabilidade > Movimentos Contábeis > Consultar Saldo','Consultar Saldo por Conta Contábil');
+}, {
+	'keycode': 97
+});
+
+var $ = jQuery.noConflict();
+$(function(){
+	var $ = jQuery.noConflict();
+	$('td.tooltip').tipsy({
+	  gravity: function (){
+			      var d = this.ownerDocument;
+				  var ew = $(this).offset().left > ($(d).scrollLeft() + $(window).width() / 2) ? 'e' : 'w';				  
+				  return $(d).context.documentElement.getBoundingClientRect().bottom - this.getBoundingClientRect().bottom <= 30 && 
+				  (d.documentElement.getBoundingClientRect().bottom -  d.viewport.getDimensions().height) >= -30 ? 's'+ew : 'n'+ew;
+			   },
+	  title: function() {
+	    return this.querySelector('span').innerHTML;
+	  },
+	  live: true,
+	  opacity: 1
+	});
+});
+
+function desabilitaTabulacao() {
+	shortcut.add("TAB",function() {
+		return;
+	});
+	shortcut.add("SHIFT+TAB",function() {
+		return;
+	});
+	shortcut.add("ENTER",function() {
+		return;
+	});
+
+	var space_options = {
+		'type':'keyup',
+		'propagate':false,
+		'disable_in_input':false,
+		'target':document,
+		'keycode':false
+	}
+	
+	shortcut.add("SPACE",function() {
+		return;
+	}, space_options);
+
+	
+}
+
+function habilitaTabulacao() {
+	shortcut.remove("TAB");
+	shortcut.remove("SHIFT+TAB");
+	shortcut.remove("ENTER");
+	shortcut.remove("SPACE");
+}
+
+/**
+ * Esta função é executada quando o usuario clica em 'sim' na popup de impressora.
+ */
+function simImpressora(){
+    window.open("/colmeia/jnlp/impressora.jsp", '_blank');
+}
+
+
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+
+
+	
+	
+		
+	
+
+
+
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+<script language="javascript"> 
+
+	function alterarTipoDePessoa() {
+		var tmpForm = document.forms['PessoaActionForm'];
+		tmpForm.action="exibir_incluir_tipo_pessoa.do";
+	    divProcessando();
+   		tmpForm.submit();
+	}
+	
+	function excluirGrid(id, tipoLista){
+		var tmpForm = document.forms['PessoaActionForm'];
+		var action = "excluir_grid.do?idItemGrid="+ id +"&tipoLista=" + tipoLista; 
+		tmpForm.action=action;
+		divProcessando();
+		tmpForm.submit();
+	}
+
+	function alterarGrid(id, tipoLista){
+		var tmpForm = document.forms['PessoaActionForm'];
+		var action = "alterar_grid.do?idItemGrid="+ id +"&tipoLista=" + tipoLista; 
+		tmpForm.action=action;
+		divProcessando();
+		tmpForm.submit();
+	}
+	
+	function trocaTipoEndereco(campo, tipoEmail){
+		var dvEndereco = document.getElementById("dvCepEndereco");
+		var dvEmail = document.getElementById("dvCepEmail");
+
+		if(campo.value == tipoEmail){
+			dvEndereco.style.display = "none";
+			dvEmail.style.display = "";
+			document.PessoaActionForm.tipoEnderecoEmail.value = campo.value;
+			document.PessoaActionForm.complementoEmail.value = "";
+		}else{
+			dvEndereco.style.display = "";
+			dvEmail.style.display = "none";
+			document.PessoaActionForm.tipoEndereco.value = campo.value;
+		}
+	}
+	
+	function numeroDocumentoAgrupadorCarregar(){
+		var tmpForm = document.forms['PessoaActionForm'];
+		tmpForm.action="carregar_pessoa_numero_documento_agrupador.do";
+		divProcessando();
+		tmpForm.submit();
+	}
+	
+	function naoInativar() {
+		var tmpForm = document.forms['PessoaActionForm'];
+		tmpForm.flagConfirmarProsseguirInativar.value = '';
+		
+		if(tmpForm.pesTipoPessoa.value == '1' ) {
+			abreAlert('Pessoa Física não foi Inativada, tem vinculo com Nro Documento Agrupador de Pessoa Física. ');
+		} else {
+			abreAlert('Pessoa Jurídica não foi Inativada, tem vinculo com Nro Documento Agrupador de Pessoa Jurídica. ');
+		}
+		
+		return false;
+	}
+	
+	function simInativar() {
+		var tmpForm = document.forms['PessoaActionForm'];
+		var action = "incluir_pessoa.do"; 
+		tmpForm.action=action;
+		divProcessando();
+		tmpForm.submit();
+	}
+
+	function naoSolicitacaoComprovante() {
+		var tmpForm = document.forms['PessoaActionForm'];
+		tmpForm.flagConfirmarSolicitacaoComprovante.value = '';
+		return false;
+	}
+	
+	function simSolicitacaoComprovante() {
+		var tmpForm = document.forms['PessoaActionForm'];
+		var action = "incluir_pessoa.do"; 
+		tmpForm.action=action;
+		divProcessando();
+		tmpForm.submit();
+	}	
+	
+</script>
+   
+<div id="dvbotaoajuda"><table><tbody><tr><td><a href="#" onclick="mostraAjuda('','incluir_pessoa')">ajuda</a></td>
+			<td><a href="#" onclick="mostraAjuda('','incluir_pessoa')"><img src="cadastro-pessoa_arquivos/icon_ajuda.png" border="0"></a></td></tr></tbody></table></div>
+<div id="dvcaminhomenu"><table><tbody><tr> <td>Generalidades &gt; Cadastro Geral &gt; Pessoa &gt; Manter &gt; Incluir Pessoa</td></tr></tbody></table></div>
+<a name="#" id="colmeiaTop"></a>
+<div id="dvprocessando" class="dvprocessando" style="display:none">
+</div>
+<div id="dvconteudo">
+</div><div id="popup" name="popup" style="width: 600px; height: 400px; top: 50px; left: 290px; z-index: 2; cursor: move;">
+<div id="top_left_resize" name="top_left_resize" style="width: 5px; height: 5px; top: 0px; left: 0px; z-index: 5; cursor: auto;"></div>
+<div id="top_resize" name="top_resize"></div>
+<div id="top_right_resize" name="top_right_resize" style="width: 5px; height: 5px; top: 0px; left: 595px; z-index: 5; cursor: auto;"></div>
+<div id="left_resize" name="left_resize"></div>
+<div id="barra_titulo">
+<div id="titulo"></div>
+<div id="close">
+<a id="xCloseDiv" onclick="closeDiv('popup')">X</a>
+</div>
+<div id="contentdv"></div>
+<iframe id="dvconteudopesquisa" name="dvconteudopesquisa" src="" style="width: 0px; height: 0px; top: 0px; left: 0px; z-index: 6; cursor: auto;" frameborder="0"></iframe>
+<div id="botoes"></div>
+</div>
+<div id="right_resize" name="right_resize"></div>
+<div id="bottom_left_resize" name="bottom_left_resize" style="width: 5px; height: 5px; top: 395px; left: 0px; z-index: 5; cursor: auto;"></div>
+<div id="bottom_resize" name="bottom_resize"></div>
+<div id="bottom_right_resize" name="bottom_right_resize" style="width: 5px; height: 5px; top: 395px; left: 595px; z-index: 5; cursor: se-resize;"></div>
+</div>
+<div id="dvbackpesquisa"></div><div id="dvcorpo">
+<div id="dvtitulo">
+<div id="dvtextotitulo">
+  <h1> Incluir Pessoa  </h1>
+ </div>
+</div>
+
+	<form name="PessoaActionForm" method="post" action="/colmeia/exibir_incluir_pessoa.do" accept-charset="ISO-8859-1" onsubmit="return validarForm()"><div><input name="org.apache.struts.taglib.html.TOKEN" value="2396e8b6beac9f03249ba26e326a3fd6" type="hidden"></div>
+<!-- *** variaveis de controle -->     <!-- propriedades framework -->
+          <input name="mensagemConfirmacaoSairSistema" value="Tem certeza de que deseja sair do sistema?" id="mensagemConfirmacaoSairSistema" type="hidden">
+          <input name="imprimirGrid" id="imprimirGrid" type="hidden">
+          <input name="campoFocus" id="campoFocus" value="pesNome" type="hidden">
+          <input name="acaoPesquisa" id="acaoPesquisa" type="hidden">
+          <input name="colmeiaCaminhoMenu" value="Generalidades &gt; Cadastro Geral &gt; Pessoa &gt; Manter" id="colmeiaCaminhoMenu" type="hidden">
+          <input name="lstCheckGrid" id="lstCheckGrid" type="hidden">
+          <input name="colmeiaLabelAba" id="colmeiaLabelAba" type="hidden">
+          <input name="mensagemAlteracaoDados" value="Operação Inválida, nenhuma alteração foi efetuada." id="mensagemAlteracaoDados" type="hidden">
+          <input name="campoFocusGrid" id="campoFocusGrid" type="hidden">
+          <input name="validarAlteracoesForm" value="true" id="validarAlteracoesForm" type="hidden">
+          <input name="acao" value="incluir" id="acao" type="hidden">
+          <input name="formAnterior" value="PessoaActionForm" id="formAnterior" type="hidden">
+          <input name="colmeiaCaminho" id="colmeiaCaminho" type="hidden">
+          <input name="campoUltimoFoco" id="campoUltimoFoco" value="pesNome" type="hidden">
+          <input name="itemFocusGrid" value="0" id="itemFocusGrid" type="hidden">
+          <input name="versao" id="versao" type="hidden">
+          <input name="objAlterado" id="objAlterado" type="hidden">
+          <input name="abaAtual" value="iframecorpo1528116422381" id="abaAtual" type="hidden">
+          <input name="validarAoSairTela" value="true" id="validarAoSairTela" type="hidden">
+          <input name="mensagemConfirmacaoTrocaTela" value="Tem certeza de que deseja sair da tela?" id="mensagemConfirmacaoTrocaTela" type="hidden">
+          <input name="PaginaAnterior" id="PaginaAnterior" type="hidden">
+          <input name="autoFocus" value="true" id="autoFocus" type="hidden">
+          <input name="alteracaoDados" id="alteracaoDados" type="hidden">
+<!-- ****** fim variaveis frame -->
+
+
+		<input name="tipoLista" value="" type="hidden">
+		<input name="idItemGrid" value="" type="hidden">
+		<input name="composicaoMotivo" value="" type="hidden">
+		<input name="listaBensPessoa" value="LRG0+n4OI+WiF/1rSZrSeUaB10TtsU5mp0XClXY+29vMZZfrpPERYglSB1SEqaBK8TlGtopkPWGBQxs7RGDM6aetVh/rqLTJoO6JqliChoEvFQ2RDtUfMGltKse5E85fhKONFQi3U3qJq08gNDRIVoLeWxqwZGbSig+ZeW6ebZYhHXUiJp5dSkNZ80u+Bwhf41L4lIoCtNxqZducH/Yyz6PsIfDdiFgwLN6dS+im4GOB3CbprAYq/rURxIaC5j2D8kM8SbhMgoRHFVNCDh0rwQd4Nk69A/CoMobkgBa5Wbr3T1/OAx0mVefuEmGxcE+gCSuKqGl9wrkOQ5Lo1v/jfA==" type="hidden">
+		<input name="listaEnderecosPessoa" value="LRG0+n4OI+WiF/1rSZrSeUaB10TtsU5mp0XClXY+29vMZZfrpPERYglSB1SEqaBK8TlGtopkPWGBQxs7RGDM6aetVh/rqLTJoO6JqliChoEvFQ2RDtUfMGltKse5E85fhKONFQi3U3qJq08gNDRIVoLeWxqwZGbSig+ZeW6ebZYhHXUiJp5dSkNZ80u+Bwhf41L4lIoCtNxqZducH/Yyz6PsIfDdiFgwLN6dS+im4GOB3CbprAYq/rURxIaC5j2D8kM8SbhMgoRHFVNCDh0rwQd4Nk69A/CoMobkgBa5Wbr3T1/OAx0mVefuEmGxcE+gCSuKqGl9wrkOQ5Lo1v/jfA==" type="hidden">
+		<input name="flagConfirmarProsseguirInativar" value="" type="hidden">
+		<input name="flagConfirmarSolicitacaoComprovante" value="" type="hidden">
+		<input name="opcaoFisica" value="true" type="hidden">
+		<input name="flagProceguirInclusao" value="" type="hidden">
+
+		
+
+		<div id="dvinterna">
+			<table class="form_tabela" width="100%" cellspacing="1">
+				
+					<tbody><tr>
+						<td id="simples_label" class="form_label"><label for="simples" id="simples_idLabel">Tipo de Pessoa</label></td>
+
+						<td>
+							<table>
+								<tbody><tr>
+									
+										<td>
+											<input name="pesTipoPessoa" value="1" checked="checked" onclick="javascript:alterarTipoDePessoa();" onchange="definirAlteracaoDadosGrid(this);" onblur="javascript:alterarTipoDePessoa();" id="pesTipoPessoa" type="radio">&nbsp;Pessoa Física
+										</td>
+										<td width="50"></td>
+										
+									<td>
+										<input name="pesTipoPessoa" value="2" onclick="javascript:alterarTipoDePessoa();" onchange="definirAlteracaoDadosGrid(this);" onblur="javascript:alterarTipoDePessoa();" id="pesTipoPessoa" type="radio">&nbsp;Pessoa Jurídica
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				
+				<tr>
+					</tr></tbody></table><br><br><table class="form_tabela" width="100%" cellspacing="1">
+						<tbody><tr>
+							<td>
+								
+									
+
+
+
+
+
+
+<input name="listaFonteDeRendas" value="LRG0+n4OI+UmFxYn2GWDj8LLuA5DY0zwn+cp3fQb1fw/2AXOxjHuVF43uE4N400Tuy8GX4loKCD0VqQK488YOp5o+phD3pUWFRE3AsOk6Ic9F7zWMW3dHmcv0ZIMtENkaM5pzBWpzPqLMij83PuMcz6PMxQqDcwFBBYMhCR7M8QzrdOlEu8qK+ADo+kKfLE+EjUTbCrEg5PlHLYkRFKSudqnfNeJtnbEVtcmIf2Ig5IZYdqT2DO03CIWlg6Mn9FEApTCa3F+bIXnUamb0hpzHpKZllS3ULlGnlLn5b+0KcZ8pntVJg084KNttsHzcHVrkBT4UT0Qdrj/Kne1ijsSKiO2UoAvqGaA5TBMHtAPu+ejhC2KMNMmgwbTlw6v1iys" type="hidden">
+<input name="detalhamentoRendasAgricolas" value="LRG0+n4OI+UmFxYn2GWDj8LLuA5DY0zwn+cp3fQb1fw/2AXOxjHuVF43uE4N400Tuy8GX4loKCD0VqQK488YOp5o+phD3pUWFRE3AsOk6Ic9F7zWMW3dHmcv0ZIMtENkaM5pzBWpzPqLMij83PuMcz6PMxQqDcwFBBYMhCR7M8QzrdOlEu8qK+ADo+kKfLE+EjUTbCrEg5PlHLYkRFKSudqnfNeJtnbEVtcmIf2Ig5IZYdqT2DO03CIWlg6Mn9FEApTCa3F+bIXnUamb0hpzHpKZllS3ULlGnlLn5b+0KcZ8pntVJg084KNttsHzcHVrkBT4UT0Qdrj/Kne1ijsSKiO2UoAvqGaA5TBMHtAPu+ejhC2KMNMmgwbTlw6v1iys" type="hidden">
+<input name="listaComposicaoDeFamiliares" value="LRG0+n4OI+UmFxYn2GWDj8LLuA5DY0zwn+cp3fQb1fw/2AXOxjHuVF43uE4N400Tuy8GX4loKCD0VqQK488YOp5o+phD3pUWFRE3AsOk6Ic9F7zWMW3dHmcv0ZIMtENkaM5pzBWpzPqLMij83PuMcz6PMxQqDcwFBBYMhCR7M8QzrdOlEu8qK+ADo+kKfLE+EjUTbCrEg5PlHLYkRFKSudqnfNeJtnbEVtcmIf2Ig5IZYdqT2DO03CIWlg6Mn9FEApTCa3F+bIXnUamb0hpzHpKZllS3ULlGnlLn5b+0KcZ8pntVJg084KNttsHzcHVrkBT4UT0Qdrj/Kne1ijsSKiO2UoAvqGaA5TBMHtAPu+ejhC2KMNMmgwbTlw6v1iys" type="hidden">
+<input name="idComposicaoFamiliar" value="" type="hidden">
+<input name="isAlteracaoDetalhamentoRenda" value="" type="hidden">
+<input name="exibirUniaoEstavel" value="false" type="hidden">
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+<script>
+function composicaoDocumentoCarregar(){
+	var tmpForm = document.forms['PessoaActionForm'];
+	tmpForm.action="composicao_documento_carregar.do";
+	divProcessando();
+	tmpForm.submit();
+}
+
+function nacionalidadeEstrangeiro(){
+	var tmpForm = document.forms['PessoaActionForm'];
+	tmpForm.action="nacionalidade_estrangeiro_carregar.do";
+	divProcessando();
+	tmpForm.submit();
+}
+
+function limparConjuge(){
+	var tmpForm = document.forms['PessoaActionForm'];
+	tmpForm.action= "limpar_conjuge.do";
+	divProcessando();
+	tmpForm.submit();
+}
+
+function mostrarOuEsconderCamposDap(value){ 
+	var tmpForm = document.forms['PessoaActionForm'];
+	//Mostra
+	if (value != '') { 
+	    document.getElementById("campos_dap").style.display='table'; 
+	} else {//Esconde
+		
+		tmpForm.numeroDap.value='';
+		tmpForm.dataValidadeDap.value='';
+		document.getElementById("campos_dap").style.display='none'; 
+	}	
+
+}
+
+	function codigoEmpreendimentoCarregar(){
+		var tmpForm = document.forms['PessoaActionForm'];
+		tmpForm.action= "carregar_empreendimento_pessoa.do";
+		divProcessando();
+		tmpForm.submit();
+	}
+
+	function calcularRendaRuralLiquidaPeriodo(){
+		var tmpForm = document.forms['PessoaActionForm'];
+		tmpForm.action= "calcular_renda_rural_liquida_periodo.do";
+		divProcessando();
+		tmpForm.submit();
+	}
+
+	function atualizarTipoSubTipoFonteRenda(){
+		var tmpForm = document.forms['PessoaActionForm'];
+		tmpForm.action= "atualizar_tipo_sub_tipo_fonte_renda.do";
+		divProcessando();
+		tmpForm.submit();
+	}
+	
+</script>
+
+<div id="dvSubtitulo_pessoa.subtitulo.dadospessoais" class="dvSubtituloTela">Dados Pessoais</div>
+
+<table class="form_tabela" width="100%" cellspacing="1">
+
+	
+	<tbody><tr>
+		
+			
+				<td id="pesNome_label" class="form_label"><label for="pesNome" id="pesNome_idLabel">Nome (*)</label></td>
+
+				<td class="form_text" colspan="5"> <input name="pesNome" maxlength="150" size="50" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" autocomplete="on" type="text">
+				</td>
+				</tr><tr>
+					<td id="pesNomePersonalizado_label" class="form_label"><label for="pesNomePersonalizado" id="pesNomePersonalizado_idLabel">Nome Personalizado (*)</label></td>
+
+				<td class="form_text" colspan="5"> <input name="pesNomePersonalizado" maxlength="25" size="50" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" autocomplete="on" type="text">
+				</td>
+				</tr>
+			
+			
+		
+	
+	<tr>
+		<td id="pefRg_label" class="form_label"><label for="pefRg" id="pefRg_idLabel">RG (*)</label></td>
+
+		
+			
+			<td class="form_text_custom" width="20%">
+				
+				<input name="pefRg" maxlength="15" size="15" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" autocomplete="on" type="text">
+				
+			</td>		
+			
+			
+		
+
+		<td id="pefOrgaoEmissor_label" class="form_label"><label for="pefOrgaoEmissor" id="pefOrgaoEmissor_idLabel">O.Expedidor (*)</label></td>
+
+
+		
+			
+			<td class="form_text_custom" width="12%">
+				
+				<input name="pefOrgaoEmissor" maxlength="15" size="20" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" autocomplete="on" type="text">
+				
+			</td>		
+			
+			
+		
+
+		<td class="form_label_custom" width="15%"><div id="pefDtEmissaoRg_label" class=""><label for="pefDtEmissaoRg" id="pefDtEmissaoRg_idLabel">Data Emissão RG (*)</label></div> </td>
+
+		
+			
+			  <td class="form_text_custom" width="19%">
+				
+				<input name="pefDtEmissaoRg" size="12" onkeydown="return acaoAoKeyDown(this, event, 'DATA','','');" onkeypress="return acaoAoTeclar(this, event, 'DATA','','');" onblur="acaoAoSair(this, 'DATA', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'DATA');" id="pefDtEmissaoRg" autocomplete="on" type="text">
+				<a href="#" onclick="Calendario(document.getElementById('pefDtEmissaoRg'), 'btnCalendar');"><img src="cadastro-pessoa_arquivos/icon_calendario.png" id="btnCalendar" width="16" height="15" border="0"></a>Ex:04/06/2018
+				
+			  </td>		
+			
+			
+		
+	</tr>
+	
+		<tr>
+			<td id="pesNroDocumento_label" class="form_label"><label for="pesNroDocumento" id="pesNroDocumento_idLabel">CPF (*)</label></td>
+
+				<td class="form_text" colspan="5"> <input name="pesNroDocumento" size="50" onkeydown="return acaoAoKeyDown(this, event, 'CPF','','');" onkeypress="return acaoAoTeclar(this, event, 'CPF','','');" onblur="acaoAoSair(this, 'CPF', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'CPF');" autocomplete="on" type="text">
+				</td>
+		</tr>
+	
+	
+	
+	<tr>
+		
+			
+				<td id="pesExpostaPoliticamente_label" class="form_label"><label for="pesExpostaPoliticamente" id="pesExpostaPoliticamente_idLabel">Pessoa Exposta Politicamente (PEP) (*)</label></td>
+
+								
+				<td><select name="pesExpostaPoliticamente" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="2" selected="selected">NÃO</option>
+<option value="1">SIM</option></select></td>
+			
+			
+		
+	</tr>
+	
+	<tr>
+		
+			
+				<td width="16%">
+					<b>
+						<div id="numeroDocumentoAgrupador_label" class=""><label for="numeroDocumentoAgrupador" id="numeroDocumentoAgrupador_idLabel">Nº Documento Agrupador (*)</label></div> 
+					</b>
+				</td>
+				<td>
+					
+				<input name="numeroDocumentoAgrupador" size="16" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" disabled="disabled" style="background: #C0C0C0;" autocomplete="on" type="text">
+				
+				</td>	
+				<td class="form_text" id="nomePessoaNumeroDocumentoAgrupador"></td><input id="nomePessoaNumeroDocumentoAgrupador" name="nomePessoaNumeroDocumentoAgrupador" value="" type="hidden">
+			
+			
+		
+	</tr>
+	
+	<tr>
+		
+			
+				<td id="pefDtNascimento_label" class="form_label"><label for="pefDtNascimento" id="pefDtNascimento_idLabel">Data de Nascimento (*)</label></td>
+
+				<td class="form_text" colspan="5"> <input name="pefDtNascimento" maxlength="10" size="12" onkeydown="return acaoAoKeyDown(this, event, 'DATA','','');" onkeypress="return acaoAoTeclar(this, event, 'DATA','','');" onblur="acaoAoSair(this, 'DATA', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'DATA');" id="pefDtNascimento" autocomplete="on" type="text">
+				<a href="#" onclick="Calendario(document.getElementById('pefDtNascimento'), 'btnCalendar');"><img src="cadastro-pessoa_arquivos/icon_calendario.png" id="btnCalendar" width="16" height="15" border="0"></a>Ex:04/06/2018
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		<td id="pefDtEmancipacao_label" class="form_label"><label for="pefDtEmancipacao" id="pefDtEmancipacao_idLabel">Data de Emancipação</label></td>
+
+
+		
+			
+			  <td class="form_text_custom" width="20%">
+				
+				<input name="pefDtEmancipacao" maxlength="10" size="12" onkeydown="return acaoAoKeyDown(this, event, 'DATA','','');" onkeypress="return acaoAoTeclar(this, event, 'DATA','','');" onblur="acaoAoSair(this, 'DATA', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'DATA');" id="pefDtEmancipacao" autocomplete="on" type="text">
+				<a href="#" onclick="Calendario(document.getElementById('pefDtEmancipacao'), 'btnCalendar');"><img src="cadastro-pessoa_arquivos/icon_calendario.png" id="btnCalendar" width="16" height="15" border="0"></a>Ex:04/06/2018
+				
+			  </td>		
+			
+			
+		
+
+		
+			
+				<td id="pefNumCertidaoEmanc_label" class="form_label"><label for="pefNumCertidaoEmanc" id="pefNumCertidaoEmanc_idLabel">Número da Certidão</label></td>
+
+				<td class="form_text" colspan="3"> <input name="pefNumCertidaoEmanc" maxlength="12" size="20" onkeydown="return acaoAoKeyDown(this, event, 'INTEIRO','','');" onkeypress="return acaoAoTeclar(this, event, 'INTEIRO','','');" onblur="acaoAoSair(this, 'INTEIRO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'INTEIRO');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pisPaset_label" class="form_label"><label for="pisPaset" id="pisPaset_idLabel">PIS/PASEP/NIS/NIT</label></td>
+
+				<td class="form_text" colspan="5"> <input name="pisPaset" maxlength="15" size="16" onkeydown="return acaoAoKeyDown(this, event, 'INTEIRO','','');" onkeypress="return acaoAoTeclar(this, event, 'INTEIRO','','');" onblur="acaoAoSair(this, 'INTEIRO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'INTEIRO');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+		
+
+	</tr>
+</tbody></table>
+
+<div id="dvSubtitulo_pessoa.subtitulo.dadosadicionais" class="dvSubtituloTela">Dados Adicionais</div>
+
+<div id="cep">
+				<script src="cadastro-pessoa_arquivos/cep.js" type="text/javascript" language="JavaScript"></script>
+<script src="cadastro-pessoa_arquivos/prototype-1.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" type="text/css" href="cadastro-pessoa_arquivos/cep.css">
+					
+						<div id="box[1]">&nbsp;</div>
+						</div><table class="form_tabela" width="100%" cellspacing="1">
+	<tbody><tr>
+		
+			
+				<td id="pefCapacidadeCivil_label" class="form_label"><label for="pefCapacidadeCivil" id="pefCapacidadeCivil_idLabel">Capacidade Civil (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefCapacidadeCivil" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="2">INCAPAZ</option>
+<option value="3">INTERDITO</option>
+<option value="1">PLENAMENTE CAPAZ</option>
+<option value="4">RELATIVAMENTE CAPAZ</option></select></td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefNacionalidade_label" class="form_label"><label for="pefNacionalidade" id="pefNacionalidade_idLabel">Nacionalidade (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefNacionalidade" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);nacionalidadeEstrangeiro();" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="1">BRASILEIRO(A)</option>
+<option value="2">ESTRANGEIRO VISTO PERMANENTE</option>
+<option value="3">ESTRANGEIRO VISTO TEMPORÁRIO</option>
+<option value="4">NATURALIZADO(A)</option>
+<option value="5">PORTUGUES C/ RESID PERM BRASIL</option></select></td>
+			
+			
+		
+	</tr>
+	<tr>
+		<td id="pefNaturalUf_label" class="form_label"><label for="pefNaturalUf" id="pefNaturalUf_idLabel">Naturalidade</label></td>
+
+
+		
+			
+				<td class="form_text_custom" width="5%"><input name="pefNaturalUf" id="hdUf[1]" value="" type="hidden"> <select id="uf[1]" name="slcpefNaturalUf" value="" disabled="disabled" onchange="definirAlteracaoDados(this);"><option value="" selected="selected"></option>
+<option value="AC">AC</option>
+<option value="AL">AL</option>
+<option value="AM">AM</option>
+<option value="AP">AP</option>
+<option value="BA">BA</option>
+<option value="CE">CE</option>
+<option value="DF">DF</option>
+<option value="ES">ES</option>
+<option value="GO">GO</option>
+<option value="MA">MA</option>
+<option value="MG">MG</option>
+<option value="MS">MS</option>
+<option value="MT">MT</option>
+<option value="PA">PA</option>
+<option value="PB">PB</option>
+<option value="PE">PE</option>
+<option value="PI">PI</option>
+<option value="PR">PR</option>
+<option value="RJ">RJ</option>
+<option value="RN">RN</option>
+<option value="RO">RO</option>
+<option value="RR">RR</option>
+<option value="RS">RS</option>
+<option value="SC">SC</option>
+<option value="SE">SE</option>
+<option value="SP">SP</option>
+<option value="TO">TO</option>
+</select></td>
+						<td class="form_text_custom"><input name="pefNaturalCidade" id="hdMunicipio[1]" value="" type="hidden"> <select id="municipio[1]" name="slcpefNaturalCidade" value="" disabled="disabled" onchange="definirAlteracaoDados(this);" autocomplete="off"><option value="" selected="selected">--</option></select></td>
+					<input name="textoBusca" id="textoBusca[1]" value="Buscando..." type="hidden"><script type="text/javascript" language="JavaScript">
+_poolId.push(1);
+_init[1] = "_request[1].addPostHandler('escolheLocalidade(1, 0);');"
+_findOnType[1] = false;
+</script>
+				
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefOcupacao_label" class="form_label"><label for="pefOcupacao" id="pefOcupacao_idLabel">Ocupação (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefOcupacao" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="151">ACOUGUEIRO</option>
+<option value="152">ACUPUNTURISTA</option>
+<option value="21">ADMINISTRADOR</option>
+<option value="25">ADVOGADO</option>
+<option value="153">AERONAUTA</option>
+<option value="154">AEROVIARIO</option>
+<option value="90">AGENCIADOR DE PROPAGANDA</option>
+<option value="71">AGENTE ADMINISTRATIVO</option>
+<option value="322">AGENTE COMUNITARIO DE SAUDE</option>
+<option value="700">AGENTE DE CRÉDITO</option>
+<option value="112">AGENTE DE SERVICOS FUNERARIOS E EMBALSAMAD</option>
+<option value="111">AGENTE DE VIAGEM E GUIA DE TURISMO</option>
+<option value="116">AGRICULTOR</option>
+<option value="258">AGRIMENSOR</option>
+<option value="3">AGRONOMO</option>
+<option value="269">AGROPECUARISTA</option>
+<option value="108">ALFAIATE</option>
+<option value="817">ALIMENTADOR DE LINHA DE PRODUÇÃO</option>
+<option value="242">AMBULANTE</option>
+<option value="243">ANALISTA</option>
+<option value="806">ANALISTA DE CRÉDITO</option>
+<option value="807">ANALISTA DE NEGÓCIOS</option>
+<option value="22">ANALISTA DE SISTEMA</option>
+<option value="808">ANALISTA FINANCEIRO</option>
+<option value="805">ANALISTA TÉCNICO EM COOPERATIVISMO</option>
+<option value="237">ANTIQUARIO</option>
+<option value="160">ANTROPOLOGO</option>
+<option value="238">APICULTOR</option>
+<option value="290">AQUICULTOR</option>
+<option value="161">ARMEIRO</option>
+<option value="227">ARQUEOLOGO E MUSEOLOGO</option>
+<option value="2">ARQUITETO OU PAISAGISTA</option>
+<option value="162">ARTESAO</option>
+<option value="163">ARTISTA PLASTICO</option>
+<option value="812">ASSESSOR EXECUTIVO</option>
+<option value="803">ASSISTENTE ADMINISTRATIVO</option>
+<option value="701">ASSISTENTE DE CONTROLE</option>
+<option value="804">ASSISTENTE DE CONTROLES INTERNOS</option>
+<option value="28">ASSISTENTE SOCIAL</option>
+<option value="164">ASTROLOGO</option>
+<option value="24">ASTRONOMO</option>
+<option value="52">ATLETA PROFISSIONAL E TECNICO EM DESPORTOS</option>
+<option value="46">ATOR E DIRETOR DE ESPETACULOS PUBLICOS</option>
+<option value="702">AUXILIAR ADMINISTRATIVO</option>
+<option value="278">AUXILIAR DE ENFERMAGEM</option>
+<option value="83">AUXILIAR DE ESCRITORIO E ASSEMELHADOS</option>
+<option value="113">AUXILIAR DE LABORATORIO E RAIOS X</option>
+<option value="289">AUXILIAR DE NUTRICAO</option>
+<option value="293">AUXILIAR DE SERVICOS GERAIS</option>
+<option value="239">AVICULTOR</option>
+<option value="820">BALANCEIRO</option>
+<option value="84">BANCARIO E ECONOMIARIO</option>
+<option value="97">BARBEIRO, CABELEIREIRO, MANICURE E PEDICUR</option>
+<option value="29">BIBLIOTECARIO OU ARQUIVISTA</option>
+<option value="166">BIOFISICO</option>
+<option value="14">BIOLOGO OU BIOMEDICO</option>
+<option value="167">BIOQUIMICO</option>
+<option value="323">BOLSISTA MESTRADO/DOUTORADO</option>
+<option value="326">BOLSISTA OUTROS</option>
+<option value="107">BOMBEIRO E INSTALADOR DE GAS, AGUA, ESGOTO</option>
+<option value="168">BORRACHEIRO</option>
+<option value="802">CAIXA</option>
+<option value="47">CANTOR E COMPOSITOR</option>
+<option value="244">CAPITALISTA/RENTISTA</option>
+<option value="169">CARTEIRO</option>
+<option value="281">CARTORARIO</option>
+<option value="184">CENOGRAFO</option>
+<option value="245">CERAMISTA</option>
+<option value="171">CHAVEIRO</option>
+<option value="276">COBRADOR DE TRANSPORTE COLETIVO</option>
+<option value="173">COMERCIARIO</option>
+<option value="30">COMUNICOLOGO</option>
+<option value="318">CONSULTOR LEGISLATIVO</option>
+<option value="20">CONTADOR</option>
+<option value="809">COORDENADOR ADM FINANCEIRO</option>
+<option value="810">COORDENADOR COMERCIAL</option>
+<option value="811">COORDENADOR DE UA</option>
+<option value="49">COREOGRAFO E BAILARINO</option>
+<option value="319">CORREGEDOR</option>
+<option value="88">CORRETOR DE IMOVEIS, SEGUROS, TITULOS E VA</option>
+<option value="226">COSTUREIRO</option>
+<option value="98">COZINHEIRO, COPEIRO, GARCOM, BARMEN E CAMA</option>
+<option value="60">DECORADOR</option>
+<option value="67">DELEGADO DE POLICIA</option>
+<option value="309">DEPUTADO ESTADUAL/DISTRITAL</option>
+<option value="308">DEPUTADO FEDERAL</option>
+<option value="271">DESEMBARGADOR</option>
+<option value="998">DESENHISTA</option>
+<option value="59">DESENHISTA COMERCIAL</option>
+<option value="5">DESENHISTA INDUSTRIAL</option>
+<option value="44">DESENHISTA TECNICO</option>
+<option value="110">DESPACHANTE, INCLUSIVE O ADUANEIRO</option>
+<option value="298">DETETIVE PARTICULAR</option>
+<option value="65">DIPLOMATA</option>
+<option value="200">DO LAR</option>
+<option value="175">ECOLOGISTA</option>
+<option value="17">ECONOMISTA</option>
+<option value="123">ELETRICISTA E ASSEMELHADOS</option>
+<option value="176">ELETRICITARIO</option>
+<option value="115">EMPREGADO DOMESTICO</option>
+<option value="78">EMPRESARIO</option>
+<option value="45">EMPRESARIO E PRODUTOR DE ESPETACULOS PUBLI</option>
+<option value="11">ENFERMEIRO</option>
+<option value="1">ENGENHEIRO</option>
+<option value="177">ESCRITOR</option>
+<option value="58">ESCULTOR/PINTOR OU ASSEMELHADO</option>
+<option value="150">ESTAGIARIO E ASSEMELHADOS</option>
+<option value="18">ESTATISTICO</option>
+<option value="292">ESTETICISTA</option>
+<option value="114">ESTIVADOR, CARREGADOR, EMBALADOR E ASSEMEL</option>
+<option value="179">ESTUDANTE</option>
+<option value="15">FARMACEUTICO</option>
+<option value="280">FAXINEIRO</option>
+<option value="93">FEIRANTE</option>
+<option value="180">FERRAMENTEIRO</option>
+<option value="283">FERROVIARIO</option>
+<option value="181">FILOLOGO</option>
+<option value="182">FILOSOFO</option>
+<option value="66">FISCAL, AUDITOR E ASSEMELHADOS</option>
+<option value="6">FISICO</option>
+<option value="12">FISIOTERAPEUTA OU TERAPEUTA OCUPACIONAL</option>
+<option value="197">FLORICULTOR</option>
+<option value="16">FONOAUDIOLOGO</option>
+<option value="198">FOTOGRAFO</option>
+<option value="275">FRENTISTA</option>
+<option value="246">FUNILEIRO</option>
+<option value="120">GARIMPEIRO</option>
+<option value="294">GARI OU VARREDOR DE LOGRADOUROS PUBLICOS</option>
+<option value="23">GEOGRAFO</option>
+<option value="7">GEOLOGO</option>
+<option value="704">GERENTE</option>
+<option value="703">GERENTE DE CONTROLE</option>
+<option value="815">GERENTE DE NEGÓCIOS</option>
+<option value="306">GOVERNADOR DE ESTADO/DISTRITO FEDERAL</option>
+<option value="247">HISTORIADOR</option>
+<option value="248">INDUSTRIARIO</option>
+<option value="279">INSTRUTOR</option>
+<option value="137">JOALHEIRO E OURIVES</option>
+<option value="92">JORNALEIRO</option>
+<option value="53">JORNALISTA</option>
+<option value="272">JUIZ DE COMARCA</option>
+<option value="273">JUIZ DE DIREITO</option>
+<option value="106">LANTERNEIRO E PINTOR DE VEICULOS</option>
+<option value="89">LEILOEIRO, AVALIADOR E ASSEMELHADOS</option>
+<option value="821">LEITURISTA</option>
+<option value="50">LOCUTOR E COMENTARISTA DE RADIO E TELEVISA</option>
+<option value="103">MAQUINISTA E FOGUISTA DE EMBARCACOES,LOCOM</option>
+<option value="133">MARCENEIRO E TRAB.ARTEFATOS MADEIRA</option>
+<option value="102">MARINHEIRO</option>
+<option value="240">MASSAGISTA</option>
+<option value="19">MATEMATICO E ATUARIO</option>
+<option value="295">MECANICO DE MANUTENCAO DE MAQUINAS INDUSTR</option>
+<option value="104">MECANICO DE MANUTENCAO DE VEICULOS AUTOMOT</option>
+<option value="9">MEDICO</option>
+<option value="324">MENOR SEM ATIVIDADE</option>
+<option value="320">MERGULHADOR</option>
+<option value="121">MESTRE E CONTRAMESTRE</option>
+<option value="127">METALURGICO E SIDERURGICO</option>
+<option value="228">METEOROLOGISTA</option>
+<option value="74">MILITAR EM GERAL</option>
+<option value="305">MINISTRO DE ESTADO</option>
+<option value="202">MISSIONARIO</option>
+<option value="302">MODELISTA E/OU CORTADOR - VESTUARIO</option>
+<option value="95">MODELO DE MODAS</option>
+<option value="203">MODISTA</option>
+<option value="301">MOTOCICLISTA (TRANSP. DE MERCADORIAS) E/OU</option>
+<option value="999">MOTORISTA</option>
+<option value="255">MOTORISTA DE MAQUINAS PESADAS</option>
+<option value="100">MOTORISTA DE VEICULOS DE TRANSPORTE DE CAR</option>
+<option value="99">MOTORISTA DE VEICULOS DE TRANSPORTE DE PAS</option>
+<option value="48">MUSICO</option>
+<option value="229">NUTRICIONISTA</option>
+<option value="204">OCEANOGRAFO</option>
+<option value="13">ODONTOLOGO</option>
+<option value="69">OFICIAL DAS FORCAS ARMADAS E FORCAS AUXILI</option>
+<option value="316">OFICIAL DE JUSTICA</option>
+<option value="205">OLEIRO</option>
+<option value="51">OPERADOR DE CAMARA DE CINEMA E TELEVISAO</option>
+<option value="206">OPERADOR DE COMPUTADORES</option>
+<option value="814">OPERADOR DE CRÉDITO</option>
+<option value="287">OPERADOR DE MAQUINAS AGROPECUARIAS</option>
+<option value="818">OPERADOR DE MÁQUINAS FRIGORÍFICAS</option>
+<option value="822">OPERADOR DE SALA DE MÁQUINAS</option>
+<option value="249">OPTICO</option>
+<option value="250">ORNITOLOGO</option>
+<option value="207">PADEIRO</option>
+<option value="208">PASTOR</option>
+<option value="117">PECUARISTA</option>
+<option value="277">PEDAGOGO</option>
+<option value="149">PENSIONISTA</option>
+<option value="119">PESCADOR</option>
+<option value="268">PESCADOR COM FINS COMERCIAIS</option>
+<option value="259">PESQ/PRODUC DE MUDAS OU SEMENT FISCALIZADA</option>
+<option value="260">PESQ/PRODUC DE SEMEM PARA INSEMINACAO ARTI</option>
+<option value="55">PILOTO DE AERONAVES</option>
+<option value="209">POLICIAL CIVIL</option>
+<option value="96">PORTEIRO DE EDIFICIO, ASCENSORISTA E GARAG</option>
+<option value="282">PORTUARIO</option>
+<option value="311">PREFEITO MUNICIPAL</option>
+<option value="303">PRESIDENTE DA REPUBLICA</option>
+<option value="263">PREST SERV DE INSEMINACAO ARTIFICIAL, EM I</option>
+<option value="261">PREST SERV MECANIZAD,NATURAL,RURAL INCLUSI</option>
+<option value="64">PROCURADOR DA JUSTICA E ASSEMELHADOS</option>
+<option value="34">PROFESSOR DE ENSINO DE PRIMEIRO E SEGUNDO</option>
+<option value="33">PROFESSOR DE ENSINO SUPERIOR</option>
+<option value="997">PROFESSOR/DEMAIS</option>
+<option value="32">PROFISSIONAL DE LETRAS E ARTES</option>
+<option value="210">PROGRAMADOR DE SISTEMA</option>
+<option value="310">PROMOTOR DE JUSTICA</option>
+<option value="94">PROMOTOR DE VENDAS E DEMONSTRADOR</option>
+<option value="109">PROTETICO</option>
+<option value="26">PSICOLOGO</option>
+<option value="54">PUBLICITARIO</option>
+<option value="4">QUIMICO</option>
+<option value="211">RADIOTECNICO</option>
+<option value="241">REDATOR</option>
+<option value="31">RELACOES PUBLICAS</option>
+<option value="212">RELOJOEIRO</option>
+<option value="199">REPRESENTANTE COMERCIAL</option>
+<option value="251">RODOVIARIO</option>
+<option value="213">SACERDOTE</option>
+<option value="286">SALVA-VIDAS</option>
+<option value="135">SAPATEIRO E DEMAIS TRAB DE CALCADOS E ARTE</option>
+<option value="314">SECRETARIO ESTADUAL</option>
+<option value="82">SECRETARIO/ESTENOGRAFO/DATIL/RECEP/TELEF T</option>
+<option value="313">SECRETARIO FEDERAL</option>
+<option value="315">SECRETARIO MUNICIPAL</option>
+<option value="85">SECURITARIO</option>
+<option value="214">SEGURANCA/VIGILANTE</option>
+<option value="307">SENADOR DA REPUBLICA</option>
+<option value="215">SERRALHEIRO</option>
+<option value="72">SERVENTUARIO DE JUSTICA</option>
+<option value="801">SERVIÇOS GERAIS</option>
+<option value="76">SERVIDOR PUBLICO ESTADUAL</option>
+<option value="75">SERVIDOR PUBLICO FEDERAL</option>
+<option value="77">SERVIDOR PUBLICO MUNICIPAL</option>
+<option value="27">SOCIOLOGO</option>
+<option value="216">SUCATEIRO</option>
+<option value="819">SUPERVISOR DA INDÚSTRIA ALIMENTÍCIA</option>
+<option value="86">SUPERVISOR, INSPETOR E AGENTE DE COMPRAS E</option>
+<option value="73">TABELIAO</option>
+<option value="252">TAPECEIRO</option>
+<option value="217">TAQUIGRAFO</option>
+<option value="218">TAXISTA</option>
+<option value="39">TECNICO AGRICOLA</option>
+<option value="38">TECNICO DE BIOLOGIA</option>
+<option value="37">TECNICO DE CONTABILIDADE E DE ESTATISTICA</option>
+<option value="299">TECNICO DE EDIFICACOES</option>
+<option value="42">TECNICO DE ELETRICIDADE, ELETRONICA E TELE</option>
+<option value="329">TECNICO DE ENFERMAGEM</option>
+<option value="285">TECNICO DE INFORMATICA</option>
+<option value="43">TECNICO DE LABORATORIO E RAIOS X</option>
+<option value="41">TECNICO DE MECANICA</option>
+<option value="40">TECNICO DE QUIMICA</option>
+<option value="284">TECNICO EM SEGURANCA DO TRABALHO</option>
+<option value="327">TECNICO INSTRUMENTISTA</option>
+<option value="8">TECNOLOGO</option>
+<option value="813">TESOUREIRO</option>
+<option value="253">TINTUREIRO</option>
+<option value="131">TIPOGRAFO E DEMAIS TRABALHADORES DE ARTES</option>
+<option value="254">TOPOGRAFO</option>
+<option value="219">TORNEIRO MECANICO</option>
+<option value="823">TRABALHADOR DA INDÚSTRIA ALIMENTÍCIA</option>
+<option value="129">TRABALHADOR DE CONSTRUCAO CIVIL</option>
+<option value="201">TRABALHADOR DE EXTRACAO DE MINERIOS</option>
+<option value="328">TRABALHADOR DE EXTRACAO VEGETAL</option>
+<option value="134">TRABALHADOR DE FABRICACAO DE PAPEL E PAPEL</option>
+<option value="136">TRABALHADOR DE FABRICACAO DE PRODUTOS DE B</option>
+<option value="125">TRABALHADOR DE FABRICACAO DE ROUPAS</option>
+<option value="130">TRABALHADOR DE FABRICACAO E PREPARACAO DE</option>
+<option value="124">TRABALHADOR DE INSTALACOES DE PROCESSAMENT</option>
+<option value="128">TRABALHADOR DE USINAGEM DE METAIS</option>
+<option value="118">TRABALHADOR FLORESTAL</option>
+<option value="274">TRABALHADOR INFORMAL</option>
+<option value="288">TRABALHADOR RURAL</option>
+<option value="81">TRAB DE SERVICOS DE CONTABILIDADE, CAIXA E</option>
+<option value="220">TRADUTOR</option>
+<option value="91">VENDEDOR DE COMERCIO VAREJISTA E ATACADIST</option>
+<option value="87">VENDEDOR PRACISTA, REPRESENT COMERCIAL E C</option>
+<option value="317">VEREADOR</option>
+<option value="10">VETERINARIO OU ZOOTECNISTA</option>
+<option value="325">VICE-GOVERNADOR DE ESTADO/DISTRITO FEDERAL</option>
+<option value="312">VICE-PREFEITO MUNICIPAL</option>
+<option value="304">VICE-PRESIDENTE DA REPUBLICA</option>
+<option value="221">VIDRACEIRO</option>
+<option value="297">ZELADOR DE EDIFICIO</option></select></td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefNaturezaOcupacao_label" class="form_label"><label for="pefNaturezaOcupacao" id="pefNaturezaOcupacao_idLabel">Natureza Ocupação (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefNaturezaOcupacao" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="13">AGENTE POLÍTICO</option>
+<option value="08">APOSENTADO OU PENSIONISTA</option>
+<option value="11">ATIVIDADE SEM REMUNERAÇÃO</option>
+<option value="15">BOLSISTA-MESTRADO/DOUTORADO</option>
+<option value="16">BOLSISTA-OUTROS</option>
+<option value="14">EMPREGADO DE PESSOA FÍSICA</option>
+<option value="01">EMPREGADO EM EMPRESA DO SETOR PRIVADO</option>
+<option value="07">EMPREGADO EVENTUAL/TEMPORÁRIO</option>
+<option value="03">EMPREGADO TITULAR OU PROPR DE EMPRESA</option>
+<option value="10">ESTAGIÁRIO</option>
+<option value="06">FUNCIONÁRIO EMPRESA PUBL OU DE ECONOM MISTA</option>
+<option value="09">NÃO UTILIZADO</option>
+<option value="02">PROFISSIONAL LIBERAL</option>
+<option value="12">SEM VINCULO DE EMPREGO</option>
+<option value="04">SERVIDOR PÚBLICO DA ADMINISTRAÇÃO DIRETA</option></select></td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefDtInicioAtuacao_label" class="form_label"><label for="pefDtInicioAtuacao" id="pefDtInicioAtuacao_idLabel">Mês/Ano Início na principal ocupação</label></td>
+
+				<td class="form_text_custom" width="8%">
+					
+				<input name="pefDtInicioAtuacao" size="15" onkeydown="return acaoAoKeyDown(this, event, 'MES_ANO','','');" onkeypress="return acaoAoTeclar(this, event, 'MES_ANO','','');" onblur="acaoAoSair(this, 'MES_ANO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'MES_ANO');" autocomplete="on" type="text">
+				
+				</td>
+			
+			
+		
+	</tr>	
+	<tr>
+		
+			
+				<td id="pefAtividadePrincipal_label" class="form_label"><label for="pefAtividadePrincipal" id="pefAtividadePrincipal_idLabel">Categoria Emitente (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefAtividadePrincipal" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="4444">GRANDE PRODUTOR RURAL</option>
+<option value="3333">MÉDIO PRODUTOR RURAL</option>
+<option value="5">NÃO SE APLICA</option>
+<option value="2222">PEQUENO PRODUTOR RURAL</option></select></td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefFormacao_label" class="form_label"><label for="pefFormacao" id="pefFormacao_idLabel">Formação (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefFormacao" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="1">ADMINISTRACAO</option>
+<option value="3">AGRONOMIA</option>
+<option value="100">ANALISE DE SISTEMAS</option>
+<option value="4">ARQUEOLOGIA</option>
+<option value="5">ARQUITETURA E URBANISMO</option>
+<option value="6">ARQUIVOLOGIA</option>
+<option value="7">ARTES CENICAS</option>
+<option value="8">ARTES PLASTICAS</option>
+<option value="9">ASTRONOMIA</option>
+<option value="113">BELAS ARTES</option>
+<option value="10">BIBLIOTECONOMIA</option>
+<option value="117">BIOMEDICINA</option>
+<option value="11">CIENCIAS ATUARIAIS</option>
+<option value="12">CIENCIAS BIOLOGICAS</option>
+<option value="13">CIENCIAS CONTABEIS</option>
+<option value="116">CIENCIAS DA AERONAUTICA</option>
+<option value="101">CIENCIAS DA COMPUTACAO</option>
+<option value="14">CIENCIAS ECONOMICAS</option>
+<option value="15">CIENCIAS SOCIAIS</option>
+<option value="112">COMERCIO EXTERIOR</option>
+<option value="103">COMUNICACAO SOCIAL</option>
+<option value="29">CRTOGRAFIA</option>
+<option value="18">DANCA</option>
+<option value="19">DECORACAO</option>
+<option value="21">DESENHO INDUSTRIAL</option>
+<option value="22">DIPLOMACIA</option>
+<option value="23">DIREITO</option>
+<option value="25">ECONOMIA DOMESTICA</option>
+<option value="104">EDUCACAO ARTISTICA</option>
+<option value="125">EDUCACAO ESPECIAL</option>
+<option value="26">EDUCACAO FISICA</option>
+<option value="105">ENFERMAGEM</option>
+<option value="27">ENFERMAGEM E OBSTETRICIA</option>
+<option value="28">ENGENHARIA AGRICOLA</option>
+<option value="114">ENGENHARIA AGRONOMICA</option>
+<option value="111">ENGENHARIA AMBIENTAL</option>
+<option value="30">ENGENHARIA CIVIL</option>
+<option value="106">ENGENHARIA DA COMPUTACAO</option>
+<option value="31">ENGENHARIA DE AERONAUTICA</option>
+<option value="32">ENGENHARIA DE AGRIMENSURA</option>
+<option value="33">ENGENHARIA DE ALIMENTOS</option>
+<option value="124">ENGENHARIA DE EXPL. E PROD. DE PETROLEO</option>
+<option value="34">ENGENHARIA DE MATERIAIS</option>
+<option value="35">ENGENHARIA DE MINAS</option>
+<option value="36">ENGENHARIA DE PESCA</option>
+<option value="37">ENGENHARIA DE PRODUCAO</option>
+<option value="121">ENGENHARIA DE TELECOMUNICACOES</option>
+<option value="38">ENGENHARIA ELETRICA</option>
+<option value="107">ENGENHARIA ELETRONICA</option>
+<option value="123">ENGENHARIA FISICA</option>
+<option value="39">ENGENHARIA FLORESTAL</option>
+<option value="40">ENGENHARIA INDUSTRIAL</option>
+<option value="41">ENGENHARIA MECANICA</option>
+<option value="42">ENGENHARIA MECATRONICA</option>
+<option value="43">ENGENHARIA METALURGICA</option>
+<option value="44">ENGENHARIA NAVAL</option>
+<option value="45">ENGENHARIA QUIMICA</option>
+<option value="46">ENGENHARIA SANITARIA</option>
+<option value="47">ENGENHARIA TEXTIL</option>
+<option value="48">ESTATISTICA</option>
+<option value="110">ESTILISTA DE MODAS</option>
+<option value="49">ESTUDOS SOCIAIS</option>
+<option value="50">FARMACIA E BIOQUIMICA</option>
+<option value="51">FILOSOFIA</option>
+<option value="52">FISICA</option>
+<option value="53">FISIOTERAPIA</option>
+<option value="54">FONOAUDIOLOGIA</option>
+<option value="115">GEOFISICA</option>
+<option value="59">GEOGRAFIA</option>
+<option value="60">GEOLOGIA</option>
+<option value="61">HISTORIA</option>
+<option value="108">HOTELARIA</option>
+<option value="62">INFORMATICA</option>
+<option value="126">JORNALISMO</option>
+<option value="63">LETRAS</option>
+<option value="102">LICENCIATURA</option>
+<option value="64">MATEMATICA</option>
+<option value="65">MEDICINA</option>
+<option value="66">MEDICINA VETERINARIA</option>
+<option value="67">METEOROLOGIA</option>
+<option value="68">MUSEOLOGIA</option>
+<option value="69">MUSICA</option>
+<option value="70">MUSICOTERAPIA</option>
+<option value="999">NÃO SE APLICA</option>
+<option value="122">NORMAL SUPERIOR</option>
+<option value="71">NUTRICAO</option>
+<option value="72">OCEANOGRAFIA</option>
+<option value="73">ODONTOLOGIA</option>
+<option value="91">OFICIAL MILITAR</option>
+<option value="75">PEDAGOGIA</option>
+<option value="109">PROCESSAMENTO DE DADOS</option>
+<option value="77">PSICOLOGIA</option>
+<option value="118">PUBLICIDADE E PROPAGANDA</option>
+<option value="79">QUIMICA</option>
+<option value="80">QUIMICA INDUSTRIAL</option>
+<option value="119">RADIOLOGIA</option>
+<option value="82">RELACOES INTERNACIONAIS</option>
+<option value="84">SECRETARIADO EXECUTIVO</option>
+<option value="85">SERVICO SOCIAL</option>
+<option value="120">TECNOLOGIA</option>
+<option value="86">TEOLOGIA</option>
+<option value="87">TERAPIA OCUPACIONAL</option>
+<option value="89">TURISMO</option>
+<option value="90">ZOOTECNIA</option></select></td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefGrauInstrucao_label" class="form_label"><label for="pefGrauInstrucao" id="pefGrauInstrucao_idLabel">Grau de Instrução (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefGrauInstrucao" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="1">ANALFABETO</option>
+<option value="8">DOUTORADO</option>
+<option value="2">ENSINO FUNDAMENTAL</option>
+<option value="3">ENSINO MÉDIO</option>
+<option value="10">ENSINO MÉDIO INCOMPLETO</option>
+<option value="11">FUNDAMENTAL INCOMPLETO</option>
+<option value="7">MESTRADO</option>
+<option value="6">POS GRADUADO</option>
+<option value="5">SUPERIOR COMPLETO</option>
+<option value="9">SUPERIOR EM ANDAMENTO</option>
+<option value="4">SUPERIOR INCOMPLETO</option></select></td>
+			
+			
+		
+	</tr>
+	
+		
+			<tr>
+				<td id="pefEstadoCivil_label" class="form_label"><label for="pefEstadoCivil" id="pefEstadoCivil_idLabel">Estado Civil (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefEstadoCivil" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);limparConjuge();" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="3">CASADO(A) - COMUNHÃO PARCIAL</option>
+<option value="2">CASADO(A) - COMUNHÃO UNIVERSAL</option>
+<option value="11">CASADO(A) - PARTICIPAÇÃO FINAL AQUESTOS</option>
+<option value="8">CASADO(A) - REGIME DOTAL (DOTE)</option>
+<option value="9">CASADO(A) - REGIME MISTO OU ESPECIAL</option>
+<option value="4">CASADO(A) - SEPARAÇÃO DE BENS</option>
+<option value="7">DIVORCIADO(A)</option>
+<option value="6">SEPARADO(A) - JUDICIALMENTE</option>
+<option value="1">SOLTEIRO(A)</option>
+<option value="5">VIÚVO(A)</option></select></td>
+			</tr>
+			
+		
+		
+	
+	<tr>
+		
+			
+				<td id="pefEtnia_label" class="form_label"><label for="pefEtnia" id="pefEtnia_idLabel">Etnia (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefEtnia" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="4">AMARELA</option>
+<option value="2">BRANCA</option>
+<option value="1">INDÍGENA</option>
+<option value="9" selected="selected">NÃO INFORMADO</option>
+<option value="5">PARDA</option>
+<option value="3">PRETA</option></select></td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefSexo_label" class="form_label"><label for="pefSexo" id="pefSexo_idLabel">Sexo (*)</label></td>
+<td class="form_text" colspan="2"><select name="pefSexo" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="2">FEMININO</option>
+<option value="1">MASCULINO</option></select></td>
+			
+			
+		
+	</tr>
+
+	<tr>
+		
+				
+				<td id="numeroDependentes_label" class="form_label"><label for="numeroDependentes" id="numeroDependentes_idLabel">Número de Dependentes</label></td>
+
+				<td class="form_text_custom" width="8%">		
+					
+				<input name="numeroDependentes" maxlength="2" size="2" onkeydown="return acaoAoKeyDown(this, event, 'INTEIRO','','');" onkeypress="return acaoAoTeclar(this, event, 'INTEIRO','','');" onblur="acaoAoSair(this, 'INTEIRO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'INTEIRO');" autocomplete="on" type="text">
+				
+				</td>
+				<td>		
+					<div id="numeroDependentes_label" class=""><label for="numeroDependentes" id="numeroDependentes_idLabel">Sem Renda Própria</label></div> 
+				</td>			
+			
+			
+		
+	</tr>				
+	<tr>
+		<input name="pefPorte" value="1" type="hidden">
+		<td id="pefPorteDescricao_label" class="form_label"><label for="pefPorteDescricao" id="pefPorteDescricao_idLabel">Porte (Fonte de Renda)</label></td>
+<td class="form_text" id="pefPorteDescricao" colspan="2"></td><input id="pefPorteDescricao" name="pefPorteDescricao" value="" type="hidden">
+	</tr>
+	<tr>
+		
+			
+					<td id="numeroCadastroNacionalObras_label" class="form_label"><label for="numeroCadastroNacionalObras" id="numeroCadastroNacionalObras_idLabel">N° Cadastro Nacional de Obras</label></td>
+
+				<td class="form_text"> <input name="numeroCadastroNacionalObras" maxlength="14" size="16" onkeydown="return acaoAoKeyDown(this, event, 'INTEIRO','','');" onkeypress="return acaoAoTeclar(this, event, 'INTEIRO','','');" onblur="acaoAoSair(this, 'INTEIRO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'INTEIRO');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>	
+</tbody></table>	
+
+<div id="dvSubtitulo_pessoa.subtitulo.dadosadicionaiscertidao" class="dvSubtituloTela">Dados Adicionais - Certidão Negativa de Débitos</div>
+	
+<table class="form_tabela" width="100%" cellspacing="1">
+	<tbody><tr>
+		
+			
+				<td id="pefCodigoControleCnd_label" class="form_label"><label for="pefCodigoControleCnd" id="pefCodigoControleCnd_idLabel">Número Certidão</label></td>
+
+				<td class="form_text" colspan="3"> <input name="pefCodigoControleCnd" maxlength="20" size="20" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefDataEmissaoCnd_label" class="form_label"><label for="pefDataEmissaoCnd" id="pefDataEmissaoCnd_idLabel">Data Emissão</label></td>
+
+				<td class="form_text"> <input name="pefDataEmissaoCnd" maxlength="10" size="12" onkeydown="return acaoAoKeyDown(this, event, 'DATA','','');" onkeypress="return acaoAoTeclar(this, event, 'DATA','','');" onblur="acaoAoSair(this, 'DATA', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'DATA');" id="pefDataEmissaoCnd" autocomplete="on" type="text">
+				<a href="#" onclick="Calendario(document.getElementById('pefDataEmissaoCnd'), 'btnCalendar');"><img src="cadastro-pessoa_arquivos/icon_calendario.png" id="btnCalendar" width="16" height="15" border="0"></a>Ex:04/06/2018
+				</td>				
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefHoraEmissaoCnd_label" class="form_label"><label for="pefHoraEmissaoCnd" id="pefHoraEmissaoCnd_idLabel">Hora Emissão</label></td>
+
+				<td class="form_text" colspan="3"> <input name="pefHoraEmissaoCnd" maxlength="5" size="10" onkeydown="return acaoAoKeyDown(this, event, 'HORA',2,2);" onkeypress="return acaoAoTeclar(this, event, 'HORA',2,2);" onblur="acaoAoSair(this, 'HORA', '', '',2,2, 'false')" onfocus="acaoAoFocar(this, 'HORA');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefDataValidadeCnd_label" class="form_label"><label for="pefDataValidadeCnd" id="pefDataValidadeCnd_idLabel">Data Validade</label></td>
+
+				<td class="form_text" colspan="5"> <input name="pefDataValidadeCnd" maxlength="10" size="12" onkeydown="return acaoAoKeyDown(this, event, 'DATA','','');" onkeypress="return acaoAoTeclar(this, event, 'DATA','','');" onblur="acaoAoSair(this, 'DATA', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'DATA');" id="pefDataValidadeCnd" autocomplete="on" type="text">
+				<a href="#" onclick="Calendario(document.getElementById('pefDataValidadeCnd'), 'btnCalendar');"><img src="cadastro-pessoa_arquivos/icon_calendario.png" id="btnCalendar" width="16" height="15" border="0"></a>Ex:04/06/2018
+				</td>
+			
+			
+		
+	</tr>
+</tbody></table>
+
+<div id="dvSubtitulo_pessoa.subtitulo.dadosadicionaisdap" class="dvSubtituloTela">Dados Adicionais - Declaração de Aptidão ao Pronaf</div>
+	
+<table class="form_tabela" width="100%" cellspacing="1">
+	<tbody><tr>
+		
+			
+				<td id="numeroDap_label" class="form_label"><label for="numeroDap" id="numeroDap_idLabel">Número DAP</label></td>
+
+				<td class="form_text" colspan="3"> <input name="numeroDap" maxlength="30" size="30" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="if ( acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')) { mostrarOuEsconderCamposDap(this.value); }" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" autocomplete="on" type="text">
+				</td>
+			 
+			
+		
+	</tr>
+</tbody></table>	
+<table class="form_tabela" id="campos_dap" style="display: none;" width="100%" cellspacing="1"> 	 
+	<tbody><tr>
+		
+			
+				<td id="dataValidadeDap_label" class="form_label"><label for="dataValidadeDap" id="dataValidadeDap_idLabel">Data Validade DAP</label></td>
+
+				<td class="form_text" colspan="5"> <input name="dataValidadeDap" maxlength="10" size="12" onkeydown="return acaoAoKeyDown(this, event, 'DATA','','');" onkeypress="return acaoAoTeclar(this, event, 'DATA','','');" onblur="acaoAoSair(this, 'DATA', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'DATA');" id="dataValidadeDap" autocomplete="on" type="text">
+				<a href="#" onclick="Calendario(document.getElementById('dataValidadeDap'), 'btnCalendar');"><img src="cadastro-pessoa_arquivos/icon_calendario.png" id="btnCalendar" width="16" height="15" border="0"></a>Ex:04/06/2018
+				</td>
+			
+			
+		
+	</tr>
+</tbody></table>	
+
+<div id="dvSubtitulo_pessoa.subtitulo.dadosadicionaiscontaintegracao" class="dvSubtituloTela">Dados adicionais - Conta Integração</div>
+
+<table class="form_tabela" width="100%" cellspacing="1">
+	<tbody><tr>
+		
+			
+				<td id="nomePai_label" class="form_label"><label for="nomePai" id="nomePai_idLabel">Nome do Pai (*)</label></td>
+
+				<td class="form_text" colspan="5"> <input name="nomePai" maxlength="150" size="50" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="nomeMae_label" class="form_label"><label for="nomeMae" id="nomeMae_idLabel">Nome da Mãe (*)</label></td>
+
+				<td class="form_text" colspan="5"> <input name="nomeMae" maxlength="150" size="50" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="nomeConjuge_label" class="form_label"><label for="nomeConjuge" id="nomeConjuge_idLabel">Nome do Cônjuge</label></td>
+
+				<td class="form_text" colspan="5"> <input name="nomeConjuge" maxlength="150" size="50" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" readonly="readonly" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="dataNascimentoConjuge_label" class="form_label"><label for="dataNascimentoConjuge" id="dataNascimentoConjuge_idLabel">Dta Nascimento Cônjuge</label></td>
+
+				<td class="form_text" colspan="5"> <input name="dataNascimentoConjuge" size="12" onkeydown="return acaoAoKeyDown(this, event, 'DATA','','');" onkeypress="return acaoAoTeclar(this, event, 'DATA','','');" onblur="acaoAoSair(this, 'DATA', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'DATA');" readonly="readonly" id="dataNascimentoConjuge" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="nroDocConjuge_label" class="form_label"><label for="nroDocConjuge" id="nroDocConjuge_idLabel">Nº Documento Cônjuge</label></td>
+
+				<td class="form_text" colspan="5"> <input name="nroDocConjuge" maxlength="15" size="50" onkeydown="return acaoAoKeyDown(this, event, 'ALFA_NUMERICO','','');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','');" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" readonly="readonly" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+
+				<td id="cpfConjugeFormatado_label" class="form_label"><label for="cpfConjugeFormatado" id="cpfConjugeFormatado_idLabel">CPF do Cônjuge</label></td>
+
+				<td class="form_text" colspan="5"> <input name="cpfConjugeFormatado" size="50" onkeydown="return acaoAoKeyDown(this, event, 'CPF','','');" onkeypress="return acaoAoTeclar(this, event, 'CPF','','');" onblur="acaoAoSair(this, 'CPF', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'CPF');" readonly="readonly" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+</tbody></table>
+
+<div id="dvSubtitulo_pessoa.subtitulo.contato" class="dvSubtituloTela">Contato</div>
+
+<table class="form_tabela" width="100%" cellspacing="1">
+	<tbody><tr>
+		
+			
+				<td id="pefFoneResid_label" class="form_label"><label for="pefFoneResid" id="pefFoneResid_idLabel">Telefone Residencial</label></td>
+
+				<td class="form_text"> <input name="pefFoneResid" size="20" onkeydown="return acaoAoKeyDown(this, event, 'TELEFONE','','');" onkeypress="return acaoAoTeclar(this, event, 'TELEFONE','','');" onblur="acaoAoSair(this, 'TELEFONE', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'TELEFONE');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefFoneCom_label" class="form_label"><label for="pefFoneCom" id="pefFoneCom_idLabel">Telefone Comercial</label></td>
+
+				<td class="form_text"> <input name="pefFoneCom" size="20" onkeydown="return acaoAoKeyDown(this, event, 'TELEFONE','','');" onkeypress="return acaoAoTeclar(this, event, 'TELEFONE','','');" onblur="acaoAoSair(this, 'TELEFONE', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'TELEFONE');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefCelular_label" class="form_label"><label for="pefCelular" id="pefCelular_idLabel">Celular (*)</label></td>
+
+				<td class="form_text"> <input name="pefCelular" size="20" onkeydown="return acaoAoKeyDown(this, event, 'TELEFONE','','');" onkeypress="return acaoAoTeclar(this, event, 'TELEFONE','','');" onblur="acaoAoSair(this, 'TELEFONE', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'TELEFONE');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+	<tr>
+		
+			
+				<td id="pefFax_label" class="form_label"><label for="pefFax" id="pefFax_idLabel">Fax</label></td>
+
+				<td class="form_text"> <input name="pefFax" size="20" onkeydown="return acaoAoKeyDown(this, event, 'TELEFONE','','');" onkeypress="return acaoAoTeclar(this, event, 'TELEFONE','','');" onblur="acaoAoSair(this, 'TELEFONE', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'TELEFONE');" autocomplete="on" type="text">
+				</td>
+			
+			
+		
+	</tr>
+</tbody></table>
+
+<br>
+
+<div id="dvSubtitulo_pessoa.subtitulo.fonterenda" class="dvSubtituloTela">Fonte de Renda</div>
+
+			
+	<table class="form_tabela" width="100%" cellspacing="1">
+		<tbody><tr>
+			<td>
+				
+					
+						
+<table width="100%" height="100%"><tbody><tr><td id="tipoFonte_label" class="form_label"><label for="tipoFonte" id="tipoFonte_idLabel">Tipo Fonte (*)</label></td>
+</tr><tr><td class="form_text"><select name="tipoFonte" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);atualizarTipoSubTipoFonteRenda()" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+							<option value="2">ASSALARIADO</option>
+<option value="1">BENEFICIOS</option>
+<option value="3">OUTRAS RENDAS</option></select></td>
+</tr></tbody></table>
+					
+					
+				
+			</td>
+			<td>
+				
+					
+						
+<table width="100%" height="100%"><tbody><tr><td id="subTipoFonte_label" class="form_label"><label for="subTipoFonte" id="subTipoFonte_idLabel">Subtipo Fonte (*)</label></td>
+</tr><tr><td class="form_text"><select name="subTipoFonte" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);atualizarTipoSubTipoFonteRenda()" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+							<option value="5">AGRÍCOLA</option>
+<option value="1">APOSENTADORIA</option>
+<option value="9">ARRENDAMENTOS</option>
+<option value="3">BOLSA ESCOLA</option>
+<option value="4">BOLSA FAMÍLIA</option>
+<option value="8">FRETES/CARRETOS</option>
+<option value="6">NÃO AGRÍCOLA</option>
+<option value="2">PENSÃO</option>
+<option value="7">PROFESSOR(A)</option>
+<option value="10">SERVIÇOS P/ TERCEIROS</option></select></td>
+</tr></tbody></table>
+					
+					
+				
+			</td>				
+			<td>
+				
+<table width="100%" height="100%"><tbody><tr><td id="tipoRenda_label" class="form_label"><label for="tipoRenda" id="tipoRenda_idLabel">Tipo da Renda (*)</label></td>
+</tr><tr><td class="form_text"><select name="tipoRenda" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="1">PRINCIPAL</option>
+<option value="2">SECUNDÁRIA</option></select></td>
+</tr></tbody></table>
+			</td>
+			<td>
+				
+<table width="100%" height="100%"><tbody><tr><td id="mesAno_label" class="form_label"><label for="mesAno" id="mesAno_idLabel">Mês/Ano Início Renda (*)</label></td>
+</tr>
+				<tr><td class="form_text"> <input name="mesAno" size="9" onkeydown="return acaoAoKeyDown(this, event, 'MES_ANO','','');" onkeypress="return acaoAoTeclar(this, event, 'MES_ANO','','');" onblur="acaoAoSair(this, 'MES_ANO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'MES_ANO');" id="mesAno" autocomplete="on" type="text">
+				</td>
+</tr></tbody></table>
+			</td>
+			<td>
+				
+<table width="100%" height="100%"><tbody><tr><td id="mesAnoAtualizacao_label" class="form_label"><label for="mesAnoAtualizacao" id="mesAnoAtualizacao_idLabel">Mês/Ano Última Atualização (*)</label></td>
+</tr>
+				<tr><td class="form_text"> <input name="mesAnoAtualizacao" size="9" onkeydown="return acaoAoKeyDown(this, event, 'MES_ANO','','');" onkeypress="return acaoAoTeclar(this, event, 'MES_ANO','','');" onblur="acaoAoSair(this, 'MES_ANO', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'MES_ANO');" id="mesAnoAtualizacao" autocomplete="on" type="text">
+				</td>
+</tr></tbody></table>
+			</td>
+			<td>
+				
+				
+					
+<table width="100%" height="100%"><tbody><tr><td id="valorFonte_label" class="form_label"><label for="valorFonte" id="valorFonte_idLabel">Valor Renda Mensal (*)</label></td>
+</tr>
+				<tr><td class="form_text"> <input name="valorFonte" size="13" onkeydown="return acaoAoKeyDown(this, event, 'MOEDA',13,2);" onkeypress="return acaoAoTeclar(this, event, 'MOEDA',13,2);" onblur="acaoAoSair(this, 'MOEDA', '', '',13,2, 'false')" onfocus="acaoAoFocar(this, 'MOEDA');" style="text-align: right;" autocomplete="on" type="text">
+				</td>
+</tr></tbody></table><script>var j = jQuery.noConflict(); 
+var tmpForm = document.forms["PessoaActionForm"];var campo = tmpForm.valorFonte;
+j(campo).unmaskMoney();
+j(campo).maskMoney({thousands: ".", decimal: ",", allowZero: true, defaultZero: false, precision: 2});
+</script>				
+				
+			</td>
+			<td>
+				<table width="100%" height="100%">
+					<tbody><tr>
+						<td>
+							<div style="text-align: center">
+								<b>Incluir </b>
+							</div>
+							<div style="text-align: center">
+								<input name="btnIncluirFonteRenda" src="cadastro-pessoa_arquivos/icon_incluir.png" onclick=";validaOnClickImg('PessoaActionForm', 'incluir_grid.do?tipoLista=listaFonteDeRendas', 'fonteDeRenda');" onmouseover="javascript:atualizarValoresCampos('PessoaActionForm');" class="imgTela" type="image">
+							</div>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>			
+		</tr>	
+	</tbody></table>
+
+
+
+
+<br>
+<div id="dvSubtitulo_pessoa.subtitulo.fonterenda.agricola" class="dvSubtituloTela">Detalhamento Renda Agrícola</div>
+
+			
+	<table class="form_tabela" width="100%" cellspacing="1">
+		<tbody><tr>
+			<td>
+			
+				
+					
+<table width="100%" height="100%"><tbody><tr><td id="codigoProduto_label" class="form_label"><label for="codigoProduto" id="codigoProduto_idLabel">Produto (*)</label></td>
+</tr><tr><td class="form_text"><select name="codigoProduto" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+						<option value="127">ABACATE</option>
+<option value="38">ABACAXI</option>
+<option value="56">ABOBORA</option>
+<option value="104">ABOBRINHA</option>
+<option value="115">ACELGA</option>
+<option value="96">ACEROLA </option>
+<option value="116">AGRIÃO</option>
+<option value="98">AGUA ARDENTE</option>
+<option value="123">AIPIM CHIPS</option>
+<option value="39">ALFACE</option>
+<option value="64">ALHO</option>
+<option value="117">ALMEIRÃO</option>
+<option value="30">AMEIXA</option>
+<option value="77">APICULTURA</option>
+<option value="4">ARROZ</option>
+<option value="9">AVEIA</option>
+<option value="78">AVICULTURA CODORNA</option>
+<option value="81">AVICULTURA FRANGO INTEGRADO</option>
+<option value="82" title="AVICULTURA FRANGO NÃO INTEGRADO">AVICULTURA FRANGO NÃO INTEGRAD...</option>
+<option value="79">AVICULTURA OVOS INTEGRADO</option>
+<option value="80">AVICULTURA OVOS NÃO INTEGRADO</option>
+<option value="83">AVICULTURA PERU INTEGRADO</option>
+<option value="84">AVICULTURA PERU NÃO INTEGRADO</option>
+<option value="10">AZEVÉM</option>
+<option value="121">BALA DE BANANA</option>
+<option value="23">BANANA</option>
+<option value="124">BANANA CHIPS</option>
+<option value="126">BANANA PASSAS</option>
+<option value="36">BATATA DOCE</option>
+<option value="57">BATATA INGLESA</option>
+<option value="65">BATATA SALSA</option>
+<option value="22">BERGAMOTA</option>
+<option value="119">BERINJELA</option>
+<option value="53">BETERRABA</option>
+<option value="73">BOVINOCULTURA </option>
+<option value="40">BRÓCOLIS</option>
+<option value="92">CACAU</option>
+<option value="32">CAFÉ</option>
+<option value="17">CANA-DE-AÇÚCAR</option>
+<option value="7">CANOLA</option>
+<option value="74">CAPRINOS</option>
+<option value="41">CAQUI</option>
+<option value="42">CEBOLA</option>
+<option value="102">CEBOLINHA</option>
+<option value="43">CENOURA</option>
+<option value="13">CENTEIO</option>
+<option value="12">CEVADA</option>
+<option value="61">CHICÓRIA</option>
+<option value="44">CHUCHU</option>
+<option value="93">COCO</option>
+<option value="94">COCO-DA-BAIA</option>
+<option value="105">COENTRO</option>
+<option value="122">CONSERVAS</option>
+<option value="111">COUVE</option>
+<option value="45">COUVE FLOR</option>
+<option value="20">ERVA MATE</option>
+<option value="108">ERVILHA</option>
+<option value="112">ESCAROLA</option>
+<option value="113">ESPINAFRE</option>
+<option value="19">EUCALIPTO</option>
+<option value="120">FARINHA DE MANDIOCA</option>
+<option value="5">FEIJÃO </option>
+<option value="128">FIGO</option>
+<option value="16">FUMO</option>
+<option value="109">GENGIBRE</option>
+<option value="8">GIRASSOL</option>
+<option value="29">GOIABA</option>
+<option value="107">INHAME</option>
+<option value="106">JABUTICABA</option>
+<option value="114">JILÓ</option>
+<option value="55">KIWI</option>
+<option value="21">LARANJA</option>
+<option value="15">LEITE</option>
+<option value="31">LIMÃO</option>
+<option value="14">LINHO</option>
+<option value="25">MAÇA</option>
+<option value="37">MANDIOCA</option>
+<option value="46">MARACUJÁ</option>
+<option value="47">MELANCIA</option>
+<option value="54">MELÃO</option>
+<option value="2">MILHO</option>
+<option value="129">MORANGA</option>
+<option value="48">MORANGO</option>
+<option value="27">NECTARINA</option>
+<option value="28">NOZES</option>
+<option value="90" title="OUTRAS ATIVIDADES NÃO ESPECIFICADAS">OUTRAS ATIVIDADES NÃO ESPECIFI...</option>
+<option value="35">OUTRAS CULTURAS PERMANENTES</option>
+<option value="18">OUTRAS CULTURAS TEMPORÁRIAS</option>
+<option value="66">OUTRAS HORTIFRUTIGRANJEIRO</option>
+<option value="85" title="OUTROS EMPREENDIMENTOS PECUÁRIOS ">OUTROS EMPREENDIMENTOS PECUÁRI...</option>
+<option value="89">OUTROS PRESTAÇÃO DE SERVIÇOS</option>
+<option value="75">OVINOS</option>
+<option value="49">PEPINO</option>
+<option value="26">PÊSSEGO</option>
+<option value="62">PIMENTA</option>
+<option value="50">PIMENTÃO</option>
+<option value="33">PINHÃO</option>
+<option value="6">PIPOCA</option>
+<option value="76">PISCICULTURA</option>
+<option value="95">PITAYA</option>
+<option value="58">PORONGO</option>
+<option value="87">PRESTAÇÃO DE SERVIÇOS COLHEITA</option>
+<option value="88" title="PRESTAÇÃO DE SERVIÇOS DE FRETES">PRESTAÇÃO DE SERVIÇOS DE FRETE...</option>
+<option value="86">PRESTAÇÃO DE SERVIÇOS PLANTIO</option>
+<option value="99">PRODUTO PADRÃO DA MIGRAÇÃO</option>
+<option value="110">QUIABO</option>
+<option value="59">RABANETE</option>
+<option value="34">REFLORESTAMENTO</option>
+<option value="100">REPOLHO</option>
+<option value="60">RÚCULA</option>
+<option value="63">SALSA</option>
+<option value="101">SALSINHA</option>
+<option value="91">SERICICULTURA</option>
+<option value="1">SOJA</option>
+<option value="11">SORGO</option>
+<option value="71">SUÍNO CICLO COMPLETO INTEGRADO</option>
+<option value="72" title="SUÍNO CICLO COMPLETO NÃO INTEGRADO">SUÍNO CICLO COMPLETO NÃO INTEG...</option>
+<option value="67">SUÍNO CRIAÇÃO INTEGRADO</option>
+<option value="68">SUÍNO CRIAÇÃO NÃO INTEGRADO</option>
+<option value="97">SUINOCULTURA CRECHÁRIO</option>
+<option value="69">SUÍNO TERMINAÇÃO INTEGRADO</option>
+<option value="70">SUÍNO TERMINAÇÃO NÃO INTEGRADO</option>
+<option value="125">TAIÁ</option>
+<option value="51">TOMATE</option>
+<option value="103">TOMATE CEREJA</option>
+<option value="3">TRIGO</option>
+<option value="24">UVA</option>
+<option value="52">VAGEM</option>
+<option value="118">YACON</option></select></td>
+</tr></tbody></table>
+				
+				
+			
+			</td>
+			<td>				
+				
+<table width="100%" height="100%"><tbody><tr><td id="valorUnitario_label" class="form_label"><label for="valorUnitario" id="valorUnitario_idLabel">Valor Unitário (*)</label></td>
+</tr>
+				<tr><td class="form_text"> <input name="valorUnitario" size="10" onkeydown="return acaoAoKeyDown(this, event, 'MOEDA',13,2);" onkeypress="return acaoAoTeclar(this, event, 'MOEDA',13,2);" onchange="if (acaoAoSair(this, 'MOEDA', '', '',13,2, 'false')) { calcularRendaRuralLiquidaPeriodo() }" onblur="acaoAoSair(this, 'MOEDA', '', '',13,2, 'false')" onfocus="acaoAoFocar(this, 'MOEDA');" style="text-align: right;" autocomplete="on" type="text">
+				</td>
+</tr></tbody></table><script>var j = jQuery.noConflict(); 
+var tmpForm = document.forms["PessoaActionForm"];var campo = tmpForm.valorUnitario;
+j(campo).unmaskMoney();
+j(campo).maskMoney({thousands: ".", decimal: ",", allowZero: true, defaultZero: false, precision: 2});
+</script>
+			</td>
+			<td>
+				
+<table width="100%" height="100%"><tbody><tr><td id="unidadeMedida_label" class="form_label"><label for="unidadeMedida" id="unidadeMedida_idLabel">Unidade de Medida (*)</label></td>
+</tr><tr><td class="form_text"><select name="unidadeMedida" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="22">ANO</option>
+<option value="10">ARE</option>
+<option value="32">ARROBA</option>
+<option value="8">BARN</option>
+<option value="43">CABEÇA</option>
+<option value="37">CAIXA</option>
+<option value="20">DIA</option>
+<option value="50">DOSE</option>
+<option value="44">DUZIA</option>
+<option value="42">FARDO</option>
+<option value="39">GARRAFA</option>
+<option value="4">GRAU</option>
+<option value="16">GRAUS CELSIUS</option>
+<option value="38">HASTE</option>
+<option value="9">HECTARE</option>
+<option value="33" title="HECTARE POR MIL PÉS">HECTARE POR MIL PÉ...</option>
+<option value="12">HERTZ</option>
+<option value="17">HORA</option>
+<option value="27">HORA/HOMEM</option>
+<option value="3">KILOMETRO</option>
+<option value="24" title="KILOMETROS POR HORA">KILOMETROS POR HOR...</option>
+<option value="41">LATA</option>
+<option value="25">LITROS</option>
+<option value="55">MAÇOS</option>
+<option value="21">MES</option>
+<option value="1">METRO</option>
+<option value="26">METRO CUBICO</option>
+<option value="2">METRO POR SEGUNDO</option>
+<option value="23">METRO POR SEGUNDO</option>
+<option value="11">METRO QUADRADO</option>
+<option value="40">MIL</option>
+<option value="46">MIL CABEÇAS</option>
+<option value="53">MIL DUZIAS</option>
+<option value="36">MILHARES</option>
+<option value="48">MILILITROS</option>
+<option value="54">MIL LITROS</option>
+<option value="35">MIL MUDAS</option>
+<option value="56">MIL VASOS</option>
+<option value="18">MINUTO</option>
+<option value="7">MINUTO</option>
+<option value="52">NÃO SE APLICA</option>
+<option value="47">PEÇA</option>
+<option value="34">PÉS POR HECTARE</option>
+<option value="15">QUILOGRAMA</option>
+<option value="28">QUILOGRAMA BRUTO</option>
+<option value="29">QUILOGRAMA LIQUIDO</option>
+<option value="6">RADIANO</option>
+<option value="51">REAIS</option>
+<option value="14">SACA - 60KG</option>
+<option value="5">SEGUNDO</option>
+<option value="19">SEGUNDO</option>
+<option value="13">TONELADA</option>
+<option value="30">TONELADA BRUTA</option>
+<option value="31">TONELADA LIQUIDA</option>
+<option value="49">UNIDADE</option>
+<option value="45">VASOS</option></select></td>
+</tr></tbody></table>
+			</td>	
+			<td>
+				
+<table width="100%" height="100%"><tbody><tr><td id="producaoTotal_label" class="form_label"><label for="producaoTotal" id="producaoTotal_idLabel">Produção Total (*)</label></td>
+</tr>
+				<tr><td class="form_text"> <input name="producaoTotal" maxlength="9" size="9" onkeydown="return acaoAoKeyDown(this, event, 'INTEIRO','','');" onkeypress="return acaoAoTeclar(this, event, 'INTEIRO','','');" onchange="if (acaoAoSair(this, 'INTEIRO', '', '','','', 'false')) { calcularRendaRuralLiquidaPeriodo() }" onblur="acaoAoSair(this, 'INTEIRO', '', '','','', 'true')" onfocus="acaoAoFocar(this, 'INTEIRO');" autocomplete="on" type="text">
+				</td>
+</tr></tbody></table>
+			</td>
+			<td>					
+				
+<table width="100%" height="100%"><tbody><tr><td id="custoProducao_label" class="form_label"><label for="custoProducao" id="custoProducao_idLabel">Custo de Produção (%) (*)</label></td>
+</tr>
+				<tr><td class="form_text"> <input name="custoProducao" maxlength="9" size="9" onkeydown="return acaoAoKeyDown(this, event, 'INTEIRO','','');" onkeypress="return acaoAoTeclar(this, event, 'INTEIRO','','');" onchange="if (acaoAoSair(this, 'INTEIRO', '', '','','', 'false')) { calcularRendaRuralLiquidaPeriodo() }" onblur="acaoAoSair(this, 'INTEIRO', '', '','','', 'true')" onfocus="acaoAoFocar(this, 'INTEIRO');" autocomplete="on" type="text">
+				</td>
+</tr></tbody></table>
+			</td>
+			<td>					
+				
+<table width="100%" height="100%"><tbody><tr><td id="prazoComercializacao_label" class="form_label"><label for="prazoComercializacao" id="prazoComercializacao_idLabel">Prazo Para a Comercialização (*)</label></td>
+</tr><tr><td class="form_text"><select name="prazoComercializacao" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);javascript:calcularRendaRuralLiquidaPeriodo()" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="7">ANUAL</option>
+<option value="2">DECENDIAL</option>
+<option value="1">DIÁRIO</option>
+<option value="4">MENSAL</option>
+<option value="3">SEMANAL</option>
+<option value="6">SEMESTRAL</option>
+<option value="5">TRIMESTRAL</option></select></td>
+</tr></tbody></table>
+			</td>	
+		</tr></tbody></table>	
+		<table class="form_tabela" width="100%" cellspacing="1">
+			<tbody><tr><td width="15%">
+				
+<table width="100%" height="100%"><tbody><tr><td id="tipoAreaCultivada_label" class="form_label"><label for="tipoAreaCultivada" id="tipoAreaCultivada_idLabel">Tipo Área Cultivada (*)</label></td>
+</tr><tr><td class="form_text"><select name="tipoAreaCultivada" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="1">PRÓPRIA</option>
+<option value="2">ARRENDADA</option>
+<option value="3">OUTROS</option></select></td>
+</tr></tbody></table>
+			</td>	
+			<td width="20%">				
+				
+<table width="100%" height="100%"><tbody><tr><td id="quantidadeAreaCultivada_label" class="form_label"><label for="quantidadeAreaCultivada" id="quantidadeAreaCultivada_idLabel">Quantidade Área Cultivada (*)</label></td>
+</tr>
+				<tr><td class="form_text"> <input name="quantidadeAreaCultivada" maxlength="12" size="10" onkeydown="return acaoAoKeyDown(this, event, 'MOEDA',7,3);" onkeypress="return acaoAoTeclar(this, event, 'MOEDA',7,3);" onblur="acaoAoSair(this, 'MOEDA', '', '',7,3, 'false')" onfocus="acaoAoFocar(this, 'MOEDA');" style="text-align: right;" autocomplete="on" type="text">
+				</td>
+</tr></tbody></table><script>var j = jQuery.noConflict(); 
+var tmpForm = document.forms["PessoaActionForm"];var campo = tmpForm.quantidadeAreaCultivada;
+j(campo).unmaskMoney();
+j(campo).maskMoney({thousands: ".", decimal: ",", allowZero: true, defaultZero: false, precision: 3});
+</script>
+			</td>
+			<td width="15%">
+				
+<table width="100%" height="100%"><tbody><tr><td id="unidadeMedidaAreaCultivada_label" class="form_label"><label for="unidadeMedidaAreaCultivada" id="unidadeMedidaAreaCultivada_idLabel">Medida Área Cultivada (*)</label></td>
+</tr><tr><td class="form_text"><select name="unidadeMedidaAreaCultivada" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+					<option value="10">ARE</option>
+<option value="8">BARN</option>
+<option value="9">HECTARE</option>
+<option value="33">HECTARE POR MIL PÉS</option>
+<option value="11">METRO QUADRADO</option>
+<option value="34">PÉS POR HECTARE</option></select></td>
+</tr></tbody></table>
+			</td>	
+			<td width="20%"> 
+				
+<table width="100%" height="100%"><tbody><tr><td id="rendaRuralLiquidaPeriodo_label" class="form_label"><label for="rendaRuralLiquidaPeriodo" id="rendaRuralLiquidaPeriodo_idLabel">Renda Rural Líquida Mensal</label></td>
+</tr><tr><td class="form_text" id="rendaRuralLiquidaPeriodo" align="right">0,00</td><input id="rendaRuralLiquidaPeriodo" name="rendaRuralLiquidaPeriodo" value="0,00" type="hidden">
+</tr></tbody></table>
+			</td>					
+			<td width="20%">
+				
+<table width="100%" height="100%"><tbody><tr><td id="valorFonteAgricola_label" class="form_label"><label for="valorFonteAgricola" id="valorFonteAgricola_idLabel">Valor Renda Mensal</label></td>
+</tr><tr><td class="form_text" id="valorFonteAgricola" align="right"></td><input id="valorFonteAgricola" name="valorFonteAgricola" value="" type="hidden">
+</tr></tbody></table>	
+			</td>
+			<td>
+				<table width="100%" height="100%">
+					<tbody><tr>
+						<td>
+							<div style="text-align: center">
+								<b>Incluir </b>
+							</div>
+							<div style="text-align: center">
+								<input name="btnIncluirDetalhamentoRendaAgricola" src="cadastro-pessoa_arquivos/icon_incluir.png" onclick=";validaOnClickImg('PessoaActionForm', 'incluir_grid.do?tipoLista=detalhamentoRendasAgricolas', 'detalhamentoRendaAgricola');" onmouseover="javascript:atualizarValoresCampos('PessoaActionForm');" class="imgTela" type="image">
+							</div>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>			
+		</tr>
+	</tbody></table>						
+
+
+
+
+<br>
+
+<div id="dvSubtitulo_pessoa.subtitulo.composicaofamiliar" class="dvSubtituloTela">Composição Familiar ou Econômica</div>
+
+
+	<br>
+
+
+<table class="form_tabela" width="100%" cellspacing="1">
+	
+		<tbody><tr>
+			
+				
+				
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+.imgBotaoPesquisa {
+	height: 18px;
+    width : 18px;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+}
+</style>
+<script type="text/javascript">
+
+
+function validarAntesDaPesquisacomposicaoDocumento() {
+	
+			
+		if ("" == "") {
+			tmpMensagem = mensagemPadraoObrigatorio + ": ;" +document.getElementById('_idLabel').innerHTML;
+			document.getElementById("colmeiaTop").focus();
+		    abrePopup("paginas/colmeiaMensagen.jsp?ALERT_MESSAGE="+escape(tmpMensagem),"","");
+		    return false;
+		}
+	
+	return true;
+}
+
+function abrePesquisaAntigocomposicaoDocumento() {
+	if ("" != "") {
+		if (validarAntesDaPesquisacomposicaoDocumento()) {
+		    var retorno = "parent.document.forms['PessoaActionForm'].composicaoDocumento";
+		    abrePopup("exibir_manter_pessoa.do?opcaoFisica=true&opcaoJuridica=false&retornoAction=composicao_documento_carregar.do&acaoPesquisa=true&retornoPesquisa=" + retorno,"","");
+	    	//openDiv(null,"dvconteudopesquisa",0,0,"exibir_manter_pessoa.do?opcaoFisica=true&opcaoJuridica=false&retornoAction=composicao_documento_carregar.do&acaoPesquisa=true&retornoPesquisa=" + retorno,null,null);
+		}
+	} else {
+		var retorno = "parent.document.forms['PessoaActionForm'].composicaoDocumento";
+		abrePopup("exibir_manter_pessoa.do?opcaoFisica=true&opcaoJuridica=false&retornoAction=composicao_documento_carregar.do&acaoPesquisa=true&retornoPesquisa=" + retorno,"","");
+	    //openDiv(null,"dvconteudopesquisa",0,0,"exibir_manter_pessoa.do?opcaoFisica=true&opcaoJuridica=false&retornoAction=composicao_documento_carregar.do&acaoPesquisa=true&retornoPesquisa=" + retorno,null,null);
+	}
+}
+
+function abrePesquisacomposicaoDocumento() {	
+	if ("" != "") {
+		if (validarAntesDaPesquisacomposicaoDocumento()) {
+		    var retorno = "parent.document.forms['PessoaActionForm'].composicaoDocumento";
+		    //abrePopup("exibir_manter_pessoa.do?opcaoFisica=true&opcaoJuridica=false&retornoAction=composicao_documento_carregar.do&acaoPesquisa=true&retornoPesquisa=" + retorno,"","");
+		    escolherFormaAberturaPopupAbrircomposicaoDocumento("parent.document.forms['PessoaActionForm'].composicaoDocumento");
+	    	//openDiv(null,"dvconteudopesquisa",0,0,"exibir_manter_pessoa.do?opcaoFisica=true&opcaoJuridica=false&retornoAction=composicao_documento_carregar.do&acaoPesquisa=true&retornoPesquisa=" + retorno,null,null);
+		}
+	} else {
+		var retorno = "parent.document.forms['PessoaActionForm'].composicaoDocumento";
+		//abrePopup("exibir_manter_pessoa.do?opcaoFisica=true&opcaoJuridica=false&retornoAction=composicao_documento_carregar.do&acaoPesquisa=true&retornoPesquisa=" + retorno,"","");
+		escolherFormaAberturaPopupAbrircomposicaoDocumento("parent.document.forms['PessoaActionForm'].composicaoDocumento");
+	    //openDiv(null,"dvconteudopesquisa",0,0,"exibir_manter_pessoa.do?opcaoFisica=true&opcaoJuridica=false&retornoAction=composicao_documento_carregar.do&acaoPesquisa=true&retornoPesquisa=" + retorno,null,null);
+	}
+}
+
+function escolherFormaAberturaPopupAbrircomposicaoDocumento (retorno) {
+     
+    
+	  abrePopup("exibir_manter_pessoa.do?opcaoFisica=true&opcaoJuridica=false&retornoAction=composicao_documento_carregar.do&abaAtual="+document.forms['PessoaActionForm'].abaAtual.value+"&acaoPesquisa=true&retornoPesquisa=" + retorno,"","");
+	
+}
+
+function acaoKeyDowncomposicaoDocumento(evt) {
+	window.status = '';
+
+	var oEvent = (window.event) ? window.event : evt;
+	var nKeyCode = oEvent.keyCode ? oEvent.keyCode : oEvent.which ? oEvent.which : void 0;
+
+	if (nKeyCode == '119') {
+		abrePesquisacomposicaoDocumento();
+	}
+}
+
+var funcPesquisa = function () { abrePesquisacomposicaoDocumento();};
+function abrirPopUpPesquisa() { 
+	funcPesquisa();
+}
+
+</script>
+	
+	
+		
+	
+
+	
+
+	
+		
+
+			
+			
+			
+				
+				<td>
+					<table width="150">
+						<tbody><tr>
+							<td id="composicaoDocumento_label" class="form_label"><label for="composicaoDocumento" id="composicaoDocumento_idLabel">Número do Documento (*)</label></td>
+
+						</tr>
+						<tr>
+							<td class="form_text" width="150">
+								
+									
+									
+									
+									
+									
+										
+										
+											
+				<input name="composicaoDocumento" maxlength="" size="" onkeydown="acaoKeyDowncomposicaoDocumento(event);return acaoAoKeyDown(this, event, 'CPF','','');" onkeypress="return acaoAoTeclar(this, event, 'CPF','','');" onblur="acaoAoSair(this, 'CPF', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'CPF');" id="composicaoDocumento" autocomplete="on" type="text">
+				
+										
+										
+
+									
+								
+								
+									
+										<input name="" src="cadastro-pessoa_arquivos/icon_ok.png" onclick="javascript:if (isCpfCnpj(document.getElementById('composicaoDocumento').value)) { composicaoDocumentoCarregar(); } else { return false; };" id="pesquisaPesquisa" class="imgBotaoPesquisa" type="image">
+									
+									<a href="javascript:void(0);" onclick="abrePesquisacomposicaoDocumento()">
+										<img src="cadastro-pessoa_arquivos/icon_localizar.png" class="imgTela" border="0">
+									</a>		
+								
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+			
+		
+	
+	
+
+
+				
+			
+			<td width="300"><input id="composicaoDocumentoTexto" name="composicaoDocumentoTexto" value="" type="hidden"></td>
+			<td width="300">
+<table width="100%" height="100%"><tbody><tr><td id="composicaoParentesco_label" class="form_label"><label for="composicaoParentesco" id="composicaoParentesco_idLabel">Parentesco (*)</label></td>
+</tr><tr><td class="form_text"><select name="composicaoParentesco" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+				<option value="10">AVÔ(Ó)</option>
+<option value="1">CONJUGE</option>
+<option value="11">CUNHADO(A)</option>
+<option value="5">ENTEADO(A)</option>
+<option value="4">FILHO(A)</option>
+<option value="8">GENRO(NORA)</option>
+<option value="6">IRMÃO(Ã)</option>
+<option value="3">MÃE</option>
+<option value="9">NETO(A)</option>
+<option value="2">PAI</option>
+<option value="13">PRIMO(A)</option>
+<option value="7">SEM GRAU DE PARENTESCO</option>
+<option value="12">SOGRO(A)</option></select></td>
+</tr></tbody></table></td>
+			<td width="150">
+			<table width="100%">
+				<tbody><tr>
+					<td>
+					<div style="text-align: center"><b>Incluir </b></div>
+					<div style="text-align: center"><input name="btnIncluirComposFamiliar" src="cadastro-pessoa_arquivos/icon_incluir.png" onclick=";validaOnClickImg('PessoaActionForm', 'incluir_grid.do?tipoLista=listaComposicaoDeFamiliares', 'composicaoFamiliar');" onmouseover="javascript:atualizarValoresCampos('PessoaActionForm');" class="imgTela" type="image"></div>
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+		</tr>
+	
+
+	
+</tbody></table>
+
+<div id="dvSubtitulo_pessoa.subtitulo.bem" class="dvSubtituloTela">Bem Pessoa</div>
+
+
+	<br>
+
+
+
+
+<div id="dvSubtitulo_pessoa.subtitulo.endereco" class="dvSubtituloTela">Endereço Pessoa</div>
+
+
+	<div id="cep">
+		
+			<div id="dvCepEndereco">
+		
+		
+	 
+		
+			<div id="box[0]">&nbsp;</div>
+			<table class="form_tabela" width="100%" cellspacing="0">
+				<tbody><tr>
+					<td colspan="5" width="20%" align="center"><b><div id="simples_label" class=""><label for="simples" id="simples_idLabel">Entrada de Dados</label></div>  </b></td>
+				</tr>
+				<tr>
+					<td width="20%">
+<table width="100%" height="100%"><tbody><tr><td id="tipoEndereco_label" class="form_label"><label for="tipoEndereco" id="tipoEndereco_idLabel">Tipo Endereço (*)</label></td>
+</tr><tr><td class="form_text"><select name="tipoEndereco" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);trocaTipoEndereco(this, 4);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+						<option value="3">CAIXA POSTAL</option>
+<option value="2">COMERCIAL</option>
+<option value="4">EMAIL</option>
+<option value="1">RESIDENCIAL</option></select></td>
+</tr></tbody></table></td>
+					<td width="10%">
+<table width="100%" height="100%"><tbody><tr><td id="cep_label" class="form_label"><label for="cep" id="cep_idLabel">CEP (*)</label></td>
+</tr><tr><td class="form_text"> <input id="cep[0]" name="cep" size="10" maxlength="9" onkeypress="return acaoAoTeclar(this, event, 'CEP','','')" onblur="acaoAoSair(this, 'CEP', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'CEP');" type="text"><a href="javascript:queryCEP(0,%20true,%20true);"></a><input name="codigoEndereco" value="" id="codEndereco[0]" type="hidden"></td>
+</tr></tbody></table></td>
+					<td width="10%">
+<table width="100%" height="100%"><tbody><tr><td id="ufEndereco_label" class="form_label"><label for="ufEndereco" id="ufEndereco_idLabel">UF (*)</label></td>
+</tr><tr><td class="form_text"> <input name="ufEndereco" id="hdUf[0]" value="" type="hidden"> <select id="uf[0]" name="slcufEndereco" value="" onchange="definirAlteracaoDados(this);" disabled="disabled"><option value="" selected="selected"></option>
+<option value="AC">AC</option>
+<option value="AL">AL</option>
+<option value="AM">AM</option>
+<option value="AP">AP</option>
+<option value="BA">BA</option>
+<option value="CE">CE</option>
+<option value="DF">DF</option>
+<option value="ES">ES</option>
+<option value="GO">GO</option>
+<option value="MA">MA</option>
+<option value="MG">MG</option>
+<option value="MS">MS</option>
+<option value="MT">MT</option>
+<option value="PA">PA</option>
+<option value="PB">PB</option>
+<option value="PE">PE</option>
+<option value="PI">PI</option>
+<option value="PR">PR</option>
+<option value="RJ">RJ</option>
+<option value="RN">RN</option>
+<option value="RO">RO</option>
+<option value="RR">RR</option>
+<option value="RS">RS</option>
+<option value="SC">SC</option>
+<option value="SE">SE</option>
+<option value="SP">SP</option>
+<option value="TO">TO</option>
+</select></td>
+</tr></tbody></table></td>
+					<td width="25%">
+<table width="100%" height="100%"><tbody><tr><td id="idLocalidadeEndereco_label" class="form_label"><label for="idLocalidadeEndereco" id="idLocalidadeEndereco_idLabel">Município (*)</label></td>
+</tr><tr><td class="form_text"> <input name="idLocalidadeEndereco" id="hdMunicipio[0]" value="" type="hidden"> <select id="municipio[0]" name="slcidLocalidadeEndereco" value="" onchange="definirAlteracaoDados(this);" autocomplete="off" disabled="disabled"><option value="" selected="selected">--</option></select></td>
+</tr></tbody></table></td>
+					<td width="30%">
+<table width="100%" height="100%"><tbody><tr><td id="bairro_label" class="form_label"><label for="bairro" id="bairro_idLabel">Bairro (*)</label></td>
+</tr><tr><td class="form_text"> <input id="bairro[0]" name="bairro" size="30" maxlength="100" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','')" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" disabled="disabled" style="background: rgb(192, 192, 192) none repeat scroll 0% 0%;" type="text"><script>
+_disableWhenAutomaticallyFilled[0] = false;</script><div id="bairroHidden[0]"><input name="bairro" id="bairro" value="" type="hidden"></div></td>
+</tr></tbody></table></td>
+				</tr>
+			</tbody></table>
+			<table class="form_tabela" width="100%" cellspacing="0">
+				<tbody><tr> 
+					<td width="20%">
+<table width="100%" height="100%"><tbody><tr><td id="tipoLogradouro_label" class="form_label"><label for="tipoLogradouro" id="tipoLogradouro_idLabel">Tipo Logradouro (*)</label></td>
+</tr><tr><td class="form_text"> <input name="tipoLogradouro" id="hdTipoLogradouro[0]" value="" type="hidden"> <select id="tipoLogradouro[0]" name="slctipoLogradouro" value="" onchange="definirAlteracaoDados(this);" disabled="disabled" style="background: rgb(192, 192, 192) none repeat scroll 0% 0%;"><option value="" selected="selected">--</option></select></td>
+</tr></tbody></table></td>
+					<td width="40%">
+<table width="100%" height="100%"><tbody><tr><td id="endereco_label" class="form_label"><label for="endereco" id="endereco_idLabel">Logradouro (*)</label></td>
+</tr><tr><td class="form_text"> <input id="endereco[0]" autocomplete="off" name="endereco" size="50" maxlength="100" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','')" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" disabled="disabled" style="background: rgb(192, 192, 192) none repeat scroll 0% 0%;" type="text"><br>
+<div id="ancora[0]"></div><div id="logradouroHidden[0]"><input name="endereco" id="endereco" value="" type="hidden"></div></td>
+</tr></tbody></table></td>
+					<td width="10%">
+<table width="100%" height="100%"><tbody><tr><td id="numero_label" class="form_label"><label for="numero" id="numero_idLabel">Número (*)</label></td>
+</tr><tr><td class="form_text"> <input id="numero[0]" name="numero" size="6" maxlength="6" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','')" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" type="text"></td>
+</tr></tbody></table></td>
+					<td width="30%">
+<table width="100%" height="100%"><tbody><tr><td id="complemento_label" class="form_label"><label for="complemento" id="complemento_idLabel">Complemento</label></td>
+</tr><tr><td class="form_text"> <input id="complemento[0]" name="complemento" size="30" maxlength="100" onfocus="acaoAoFocar(this, 'ALFA_NUMERICO');" onkeypress="return acaoAoTeclar(this, event, 'ALFA_NUMERICO','','')" onblur="acaoAoSair(this, 'ALFA_NUMERICO', '', '','','', 'false')" type="text"></td>
+</tr></tbody></table></td>
+				</tr>
+			</tbody></table>
+			<table class="form_tabela" width="100%" cellspacing="0">
+				<tbody><tr>
+					<td width="20%">
+<table width="100%" height="100%"><tbody><tr><td id="desde_label" class="form_label"><label for="desde" id="desde_idLabel">Desde (*)</label></td>
+</tr>
+				<tr><td class="form_text"> <input name="desde" size="20" onkeydown="return acaoAoKeyDown(this, event, 'DATA','','');" onkeypress="return acaoAoTeclar(this, event, 'DATA','','');" onblur="acaoAoSair(this, 'DATA', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'DATA');" id="desde" autocomplete="on" type="text">
+				<a href="#" onclick="Calendario(document.getElementById('desde'), 'btnCalendar');"><img src="cadastro-pessoa_arquivos/icon_calendario.png" id="btnCalendar" width="16" height="15" border="0"></a>Ex:04/06/2018
+				</td>
+</tr></tbody></table></td>
+					<td width="30%">
+<table width="100%" height="100%"><tbody><tr><td id="enderecoCorrespondencia_label" class="form_label"><label for="enderecoCorrespondencia" id="enderecoCorrespondencia_idLabel">Endereço Correspondência (*)</label></td>
+</tr><tr><td class="form_text"><select name="enderecoCorrespondencia" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);" onblur="definirCampoAnteriorFoco(this);"><option value=""></option>
+						<option value="2" selected="selected">NÃO</option>
+<option value="1">SIM</option></select></td>
+</tr></tbody></table></td>
+					<td width="25%"></td>
+					<td width="25%"></td> 
+					<td width="10%" align="center">
+					<table width="100%" height="100%">
+						<tbody><tr>
+							<td>
+							<div style="text-align: center"><b>Incluir </b></div>
+							<div style="text-align: center"><input name="btnIncluirEndereco" src="cadastro-pessoa_arquivos/icon_incluir.png" onclick=";validaOnClickImg('PessoaActionForm', 'incluir_grid.do?tipoLista=listaEnderecosPessoa', 'Endereco');" onmouseover="javascript:atualizarValoresCampos('PessoaActionForm');" class="imgTela" type="image">
+							</div>
+							</td>
+						</tr>
+					</tbody></table>
+					</td>
+				</tr>
+			</tbody></table>
+		<input name="textoBusca" id="textoBusca[0]" value="Buscando..." type="hidden"><script type="text/javascript" language="JavaScript">
+_poolId.push(0);
+_init[0] = "_request[0].addPostHandler('escolheLocalidade(0, 0);');"
+_findOnType[0] = false;
+</script>
+	</div>
+	
+		
+		
+			<div id="dvCepEmail" style="display: none;">
+		
+	
+	<table class="form_tabela" width="100%" cellspacing="0">
+		<tbody><tr>
+			<td width="20%">
+<table width="100%" height="100%"><tbody><tr><td id="tipoEnderecoEmail_label" class="form_label"><label for="tipoEnderecoEmail" id="tipoEnderecoEmail_idLabel">Tipo Endereço (*)</label></td>
+</tr><tr><td class="form_text"><select name="tipoEnderecoEmail" onchange="definirCampoAnteriorFoco(this);definirAlteracaoDados(this);trocaTipoEndereco(this, 4);" onblur="definirCampoAnteriorFoco(this);"><option value="" selected="selected"></option>
+				<option value="3">CAIXA POSTAL</option>
+<option value="2">COMERCIAL</option>
+<option value="4">EMAIL</option>
+<option value="1">RESIDENCIAL</option></select></td>
+</tr></tbody></table></td>
+			<td width="70%">
+			<table width="100%" height="100%">
+				<tbody><tr>
+					<td class="form_label_custom" width="100%"><div id="complementoEmail_label" class=""><label for="complementoEmail" id="complementoEmail_idLabel">Email (*)</label></div> </td>
+				</tr>
+				<tr>
+					<td width="100%">
+				<input name="complementoEmail" maxlength="45" size="45" onkeydown="return acaoAoKeyDown(this, event, 'EMAIL','','');" onkeypress="return acaoAoTeclar(this, event, 'EMAIL','','');" onblur="acaoAoSair(this, 'EMAIL', '', '','','', 'false')" onfocus="acaoAoFocar(this, 'EMAIL');" autocomplete="on" type="text">
+				</td>
+				</tr>
+			</tbody></table>
+			</td>
+			<td width="10%" align="center">
+			<table width="100%" height="100%">
+				<tbody><tr>
+					<td> 
+					<div style="text-align: center"><b>Incluir </b></div>
+					<div style="text-align: center"><input name="btnIncluirEmail" src="cadastro-pessoa_arquivos/icon_incluir.png" onclick=";validaOnClickImg('PessoaActionForm', 'incluir_grid.do?tipoLista=listaEnderecosPessoa', 'Email');" onmouseover="javascript:atualizarValoresCampos('PessoaActionForm');" class="imgTela" type="image"></div>
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+		</tr>
+	</tbody></table>
+	</div>
+
+	</div>
+
+
+
+<script>
+	document.forms[0].pefFoneCom.onblur = function() {  
+		if (document.forms[0].pefFoneCom.value.length >= 8) {
+			acaoAoSair(document.forms[0].pefFoneCom, 'TELEFONE', '', '','','', 'false')	
+		} else {
+			definirAlteracaoDadosGrid(document.forms[0].pefFoneCom);
+		}
+	};
+	mostrarOuEsconderCamposDap(document.forms[0].numeroDap.value); 
+</script>
+								
+								
+							</td>
+						</tr>
+						
+						
+					</tbody></table>
+						
+			
+			
+		</div>
+		
+		<div align="center">
+			
+				<input value="Confirmar" onclick="javascript:alterarSubmitComValidacao('PessoaActionForm', 'incluir_pessoa.do');" onmouseover="javascript:atualizarValoresCampos('PessoaActionForm');" id="Confirmar" class="form_botao" type="submit">
+				
+					<input value="Restaurar" onclick="javascript:alterarSubmit('PessoaActionForm', 'exibir_incluir_pessoa.do');" id="Restaurar" class="form_botao" type="submit">
+				
+			
+
+			<input value="Cancelar" onclick="javascript:alterarSubmit('PessoaActionForm', 'exibir_manter_pessoa.do');" id="Cancelar" class="form_botao" type="submit">
+		</div>
+	     <!-- propriedades para controle de grupo not-null -->
+<!-- ****** fim propriedades para controle de grupo not-null -->
+<div id="dvObrigatorio"><p class="obs_obrigatorio">(*) Campo de preenchimento obrigatório.</p></div><script type="text/javascript">
+
+var oldonload = window.onload;
+window.onload = function() {
+if (oldonload) {
+oldonload();
+}
+definirFocusTela();
+}
+var blValidarForm = 'true';
+
+var mensagemObrigatorio = '';
+
+mandatoryValidator = new MandatoryValidator();
+mandatoryValidator
+.addField("Nome",document.forms['PessoaActionForm'].pesNome)
+.addField("Nome Personalizado",document.forms['PessoaActionForm'].pesNomePersonalizado)
+.addField("RG",document.forms['PessoaActionForm'].pefRg)
+.addField("O.Expedidor",document.forms['PessoaActionForm'].pefOrgaoEmissor)
+.addField("Data Emissão RG",document.forms['PessoaActionForm'].pefDtEmissaoRg)
+.addField("CPF",document.forms['PessoaActionForm'].pesNroDocumento)
+.addField("Pessoa Exposta Politicamente (PEP)",document.forms['PessoaActionForm'].pesExpostaPoliticamente)
+.addField("Data de Nascimento",document.forms['PessoaActionForm'].pefDtNascimento)
+.addField("Capacidade Civil",document.forms['PessoaActionForm'].pefCapacidadeCivil)
+.addField("Nacionalidade",document.forms['PessoaActionForm'].pefNacionalidade)
+.addField("Ocupação",document.forms['PessoaActionForm'].pefOcupacao)
+.addField("Natureza Ocupação",document.forms['PessoaActionForm'].pefNaturezaOcupacao)
+.addField("Categoria Emitente",document.forms['PessoaActionForm'].pefAtividadePrincipal)
+.addField("Formação",document.forms['PessoaActionForm'].pefFormacao)
+.addField("Grau de Instrução",document.forms['PessoaActionForm'].pefGrauInstrucao)
+.addField("Estado Civil",document.forms['PessoaActionForm'].pefEstadoCivil)
+.addField("Etnia",document.forms['PessoaActionForm'].pefEtnia)
+.addField("Sexo",document.forms['PessoaActionForm'].pefSexo)
+.addField("Nome do Pai",document.forms['PessoaActionForm'].nomePai)
+.addField("Nome da Mãe",document.forms['PessoaActionForm'].nomeMae)
+.addField("Celular",document.forms['PessoaActionForm'].pefCelular);
+
+mandatoryValidatorfonteDeRenda = new MandatoryValidator();
+mandatoryValidatorfonteDeRenda
+.addField("CPF",document.forms['PessoaActionForm'].pesNroDocumento)
+.addField("Tipo Fonte",document.forms['PessoaActionForm'].tipoFonte)
+.addField("Subtipo Fonte",document.forms['PessoaActionForm'].subTipoFonte)
+.addField("Tipo da Renda",document.forms['PessoaActionForm'].tipoRenda)
+.addField("Mês/Ano Início Renda",document.forms['PessoaActionForm'].mesAno)
+.addField("Mês/Ano Última Atualização",document.forms['PessoaActionForm'].mesAnoAtualizacao)
+.addField("Valor Renda Mensal",document.forms['PessoaActionForm'].valorFonte);
+
+mandatoryValidatordetalhamentoRendaAgricola = new MandatoryValidator();
+mandatoryValidatordetalhamentoRendaAgricola
+.addField("CPF",document.forms['PessoaActionForm'].pesNroDocumento)
+.addField("Produto",document.forms['PessoaActionForm'].codigoProduto)
+.addField("Valor Unitário",document.forms['PessoaActionForm'].valorUnitario)
+.addField("Unidade de Medida",document.forms['PessoaActionForm'].unidadeMedida)
+.addField("Produção Total",document.forms['PessoaActionForm'].producaoTotal)
+.addField("Custo de Produção (%)",document.forms['PessoaActionForm'].custoProducao)
+.addField("Prazo Para a Comercialização",document.forms['PessoaActionForm'].prazoComercializacao)
+.addField("Tipo Área Cultivada",document.forms['PessoaActionForm'].tipoAreaCultivada)
+.addField("Quantidade Área Cultivada",document.forms['PessoaActionForm'].quantidadeAreaCultivada)
+.addField("Medida Área Cultivada",document.forms['PessoaActionForm'].unidadeMedidaAreaCultivada);
+
+mandatoryValidatorcomposicaoFamiliar = new MandatoryValidator();
+mandatoryValidatorcomposicaoFamiliar
+.addField("CPF",document.forms['PessoaActionForm'].pesNroDocumento)
+.addField("Número do Documento",document.forms['PessoaActionForm'].composicaoDocumento)
+.addField("Parentesco",document.forms['PessoaActionForm'].composicaoParentesco);
+
+mandatoryValidatorEndereco = new MandatoryValidator();
+mandatoryValidatorEndereco
+.addField("CPF",document.forms['PessoaActionForm'].pesNroDocumento)
+.addField("Tipo Endereço",document.forms['PessoaActionForm'].tipoEndereco)
+.addField("CEP",document.forms['PessoaActionForm'].cep)
+.addField("UF",document.forms['PessoaActionForm'].ufEndereco)
+.addField("Município",document.forms['PessoaActionForm'].idLocalidadeEndereco)
+.addField("Bairro",document.forms['PessoaActionForm'].bairro)
+.addField("Tipo Logradouro",document.forms['PessoaActionForm'].tipoLogradouro)
+.addField("Logradouro",document.forms['PessoaActionForm'].endereco)
+.addField("Número",document.forms['PessoaActionForm'].numero)
+.addField("Desde",document.forms['PessoaActionForm'].desde)
+.addField("Endereço Correspondência",document.forms['PessoaActionForm'].enderecoCorrespondencia);
+
+mandatoryValidatorEmail = new MandatoryValidator();
+mandatoryValidatorEmail
+.addField("CPF",document.forms['PessoaActionForm'].pesNroDocumento)
+.addField("Tipo Endereço",document.forms['PessoaActionForm'].tipoEnderecoEmail)
+.addField("Email",document.forms['PessoaActionForm'].complementoEmail);
+
+onLoadCepHandler();<!-- ****** fim propriedades para controle de grupo not-null -->
+wordWrap();
+</script><div id="divCriado1" class="lista" style="top: -15px; left: 0px; position: absolute; visibility: hidden; z-index: 1;"></div><div id="divCriado0" class="lista" style="top: 1561px; left: 243px; position: absolute; visibility: hidden; z-index: 1;"></div>
+</form>
+	</div>
+<script>escondeDivProcessando(); </script> <script type="text/javascript">
+SET_DHTML("popup"+CURSOR_MOVE,
+"top_left_resize"+NO_DRAG,
+"top_right_resize"+NO_DRAG,
+"bottom_right_resize"+CURSOR_SE_RESIZE,
+"bottom_left_resize"+NO_DRAG,
+"dvconteudopesquisa"+NO_DRAG);
+var main = dd.elements.popup;
+var lt = dd.elements.top_left_resize;
+var rt = dd.elements.top_right_resize;
+var rb = dd.elements.bottom_right_resize;
+var lb = dd.elements.bottom_left_resize;
+var grips = [lt, rt, rb, lb];
+function init()
+{
+main.hide();
+main.setZ(main.z+1);
+dd.elements.dvconteudopesquisa.setZ(main.z-1);
+var i = 4; while(i--)
+{
+grips[i].setZ(main.z+1);
+}
+}
+function my_DropFunc()
+{
+dd.elements['dvconteudopesquisa'].show();
+}
+function my_DragFunc()
+{
+dd.elements['dvconteudopesquisa'].hide();
+if (dd.obj == rb){
+if (main.w < 140 || main.h < 140) {
+main.resizeTo(main.w > 150 ? main.w : 150, main.h > 150 ? main.h : 150);
+rb.moveTo(main.x + 146, main.y + 146);
+positionsDivElements('dvconteudopesquisa',rb.x-lb.x, rb.y-rt.y);
+}
+main.resizeTo(rb.x-lb.x, rb.y-rt.y);
+positionsDivElements('dvconteudopesquisa',rb.x-lb.x, rb.y-rt.y);
+}
+}
+function abrirPopupColmeia(){
+if (abrirPopup == 'true'){
+var main = dd.elements.popup;
+var j = jQuery.noConflict();
+main.moveTo(main.w, j(window).scrollTop() + 10);
+openDiv(null,'dvconteudopesquisa',0,0,'/colmeia/paginas/colmeiaMensagen.jsp',exc,null);}}
+</script>
+<script> abrirPopupColmeia();
+var j = jQuery.noConflict(); 
+j(window).load(function() { 
+	var main = dd.elements.popup; 
+	var left = (j(window).innerWidth() - main.w) / 2; 
+	left = left < 0 ? 20 : left; 
+	main.moveTo(left, j(window).scrollTop() + 50); 
+}); 
+</script>
+<script>
+		var flagConfirmarProsseguirInativar = '';
+		if (flagConfirmarProsseguirInativar == 'true') {
+			var tmpForm = document.forms['PessoaActionForm'];
+			abreConfirm('A pessoa com o Nro Documento Agrupador será Inativada, todos os integrantes do Grupo serão alterados com o Valor dos Seus CNPJ`s ou CPF`s, este procedimento pode causar inconsistência no Arquivo 3040. Favor confirmar se deseja continuar com a operação.', "simInativar", "naoInativar")
+		}
+
+		var flagConfirmarSolicitacaoComprovante = '';
+		if (flagConfirmarSolicitacaoComprovante == 'true') {
+			var tmpForm = document.forms['PessoaActionForm'];
+			abreConfirm('Atenção! Para a inclusão/alteração dos dados cadastrais de pessoas que mantenham conta(s) na Cooperativa é obrigatório anexar ao cadastro o comprovante de endereço residencial com data de emissão não inferior a 60 dias e o(s) comprovante(s) da(s) renda(s) informada(s). Confirmar a inclusão/alteração?', "simSolicitacaoComprovante", "naoSolicitacaoComprovante");
+		}
+
+	</script>	
+
+
+</body></html>

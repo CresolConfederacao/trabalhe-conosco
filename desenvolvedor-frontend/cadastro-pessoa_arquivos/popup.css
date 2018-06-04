@@ -1,0 +1,151 @@
+#popup {
+	position:absolute;
+	border: 1px solid #5B8C75;
+	width: 600px;
+	height: 400px;
+	visibility: hidden;
+	z-index: 2;
+	left:0px;
+}
+
+
+/* resize */
+#top_left_resize {
+	position: absolute;
+	top: 0px;
+	left:0px;
+	width:5px;
+	height: 5px;
+	background-color: #5B8C75;
+}
+
+#top_resize {
+	position: absolute;
+	top: 0px;
+	left:5px;
+	width:590px;
+	height: 5px;
+	background-color: #5B8C75;
+}
+
+#top_right_resize {
+	position: absolute;
+	top: 0px;
+	left:595px;
+	width:5px;
+	height: 5px;
+	background-color: #5B8C75;
+}
+
+#left_resize {
+	position: absolute;
+	top: 5px;
+	left:0px;
+	width:5px;
+	height: 390px;
+	background-color: #5B8C75;
+}
+
+#right_resize {
+	position: absolute;
+	top:5px;
+	left:595px;
+	width:5px;
+	height:390px;
+	background-color: #5B8C75;
+}
+
+#bottom_left_resize {
+	position:absolute;
+	left: 0px;
+	top:395px;
+	width:5px;
+	height:5px;
+	background-color: #5B8C75;
+}
+
+#bottom_right_resize {
+	position:absolute;
+	left: 595px;
+	top:395px;
+	width:5px;
+	height:5px;
+	background-color: #5B8C75;
+}
+
+#bottom_resize {
+	position:absolute;
+	left: 5px;
+	top:395px;
+	height:5px;
+	width: 590px;
+	background-color: #5B8C75;
+}
+
+/* draggable */
+
+#barra_titulo {
+	background-color: #5B8C75;
+	height: 20px;
+}
+
+/* titulo */
+#titulo {
+	position: absolute;
+	top: 3px;
+	color: #fff;
+	font-family:arial, verdana, tahoma, sans-serif;
+	font-size: 12px;
+	text-transform: capitalize;
+	font-weight: bolder;
+	width: 600px;
+	height: 20px;
+	text-align: center;
+	z-index:100;
+}
+
+#help {
+	position: absolute;
+	left:560px;
+	top: 3px;
+	color: #fff;
+	font-family:arial, verdana, tahoma, sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bolder;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	z-index:101;
+}
+
+#close {
+	position: absolute;
+	left:580px;
+	top: 3px;
+	color: #fff;
+	font-family:arial, verdana, tahoma, sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bolder;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	z-index:102;
+}
+
+/* conteudo e botoes */
+
+#contentdv{
+	position: absolute;
+	top:20px;
+	left:5px;
+	width:590px;
+	height:375px;
+	background-color: #F7EAB7;
+}
+
+
+#botoes {
+
+}

@@ -1,0 +1,175 @@
+.drag{
+	position:relative;
+    cursor: move;
+  	z-index: 100;
+}
+
+
+#dvpesquisa {
+	background-color: #f1e3a4;
+ 	border: 2px;
+    border-style: outset;
+    border-color: white;
+   	height: 0px;
+   	width: 0px;
+   	z-index: 0;
+   	visibility: hidden;
+}
+
+#dvbotaopesquisa {
+	top: 3px;
+	vertical-align: top;
+   	color: black;
+   	background-color: #f1e3a4;
+   	visibility: hidden;
+   	text-align: right;
+   	cursor: pointer;
+   	border-color: white;
+   	border-width: 0px;
+   	border-style: solid;
+   	width: 20px;
+   	float: right;
+   	height: 0px;
+ 	z-index: 0
+ 	
+} 
+ 
+#dvbotaopesquisa a{
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-left-color: white;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-right-color: white;
+    border-right-width: 2px;
+    border-left-style: solid;
+    text-decoration: none;
+}
+ 
+#dvconteudopesquisa {
+    overflow: auto;
+    height: 0px;
+    width: 0px;
+   	z-index: 1;    
+ 	border: 0px;
+    border-style: solid;
+    border-color: red;
+}  
+
+#dvbackpesquisa {
+    height: 0px;
+    width: 0px;
+}  
+
+#dvBtLocalizar {
+  border: 0px;
+  vertical-align: middle;
+  top: 0px;
+  height: 40px;  
+  width: 20px;
+  position: relative;
+  display: table-column;
+  float: left;
+}
+
+#dvBtLocalizar IMG {
+  float: left;	
+  vertical-align: middle;
+}
+
+#dvBtOk {
+  border: 0px;
+  top: 0px;
+  height: 40px;  
+  width: 20px;  
+  vertical-align: middle; 
+  position: relative;
+  display: table-column;
+  float: left;
+  
+}
+
+#dvBtOk IMG{
+  float: left;	
+  top: 50%;
+}
+
+
+#dvtagpesquisa {
+  width: 100%;
+  padding : 0px;
+  margin: 0px;
+  float: left;
+  position: relative;
+}
+
+
+#dvtexttagpesquisa {
+  padding : 0px;
+  margin: 0px;
+  float: left;
+  top: 0px;
+  height: 30px;
+  position: absolute;  
+  vertical-align: middle; 
+  display: table-column;
+}
+
+
+#dvBtLocalizar_top {
+  border: 0px;
+  vertical-align: middle;
+  float: left;
+  top: 0px;
+  height: 60px;  
+  width: 20px;
+}
+
+#dvBtLocalizar_top IMG {
+  float: left;	
+  vertical-align: middle;
+}
+
+#dvBtOk_top {
+  border: 0px;
+  float: left;
+  top: 0px;
+  height: 60px;
+  width: 20px;  
+  vertical-align: middle;  
+}
+
+#dvBtOk_top IMG{
+  float: left;	
+  top: 50%;
+}
+
+
+#dvtagpesquisa_top {
+  width: 100%;
+  padding : 0px;
+  margin: 0px;
+}
+
+#dvtexttagpesquisa_top {
+  padding : 0px;
+  margin: 0px;
+  float: left;
+  width: 40%;
+  top: 0px;
+  height: 60px;
+  
+}
+
+#dvimgMsg {
+  border: 0px;
+  top: 0px;
+  float: left;
+  height: 16px;
+  width: 16px;  
+  padding-left: 18px;
+  vertical-align: middle;  
+  left: 50%;
+  padding-right: 16px; !IMPORTANT
+}
