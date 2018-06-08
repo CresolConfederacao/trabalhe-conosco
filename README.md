@@ -8,6 +8,8 @@
 - [Vagas](#vagas)
   - [Analista de sistemas](#analista-de-sistemas)
   - [Desenvolvedor front-end](#desenvolvedor-front-end)
+  - [Analista de testes](#analista-de-testes)
+
 
 ## Sobre o desafio
 
@@ -113,3 +115,30 @@ Neste repositório temos a pasta `desenvolvedor-frontend` que contém uma págin
   - Testes unitários de frontend
 
 Você pode utilizar outros artefatos que possam ajudar e complementar a expressar a solução do problema
+
+### Analista de testes
+
+#### O que você vai fazer como analista de testes na Cresol Confederação?
+
+* Criação e alteração de casos de teste em formato BDD
+  - Leitura de casos de uso para criar e alterar casos de teste
+* Testes manuais baseados em casos de teste
+* Testes exploratórios em sistema web
+* Validação dos dados do teste no banco de dados
+* Interação direta com analistas de sistemas e desenvolvedores sobre as demandas que precisam ser testadas
+* Transferência de conhecimento
+
+#### Qual o problema que você deve resolver?
+
+* Em um determinado cenário, temos um novo campo para a pesquisa de usuário por nome. Descreva os cenários de teste possíveis para garantir a qualidade desta alteração.
+* Temos uma alteração no sistema onde não é mais possível cadastrar pessoas jurídicas até o segundo dia útil do mês. Descreva todos cenários de teste possíveis para garantir a qualidade da alteração.
+* Temos um cenário onde até 15 anos é necessário preencher o campo responsável legal do cliente. Monte os cenários de teste para garantir a qualidade da aplicação.
+* Escreva cenários de teste de login no padrão Dado/ Quando/ Então. Onde o link de acesso é www.empresa.com.br/admin e usuário e senha válidos são admin e admin123.
+* Uma empresa tem um processo onde o desenvolvedor indica alguns testes necessários que devem ser realizados. Sabendo que esta empresa possuí uma extensa biblioteca de documentação. Descreva quais passos você executaria para garantir a qualidade nesta situação.
+* Para efetuar um teste especifico, se faz necessário passar por uma outra parte do sistema que não houve alteração e o processo é muito complexo para que seja efetuado via tela. Monte um UPDATE para atualizar o estado da tabela usuário para ativo do usuário com login JOSE.
+* Imagine que você precisa validar um relatório que deve conter apenas os 10 usuários com maior salário que tenham seu estado ativo e em alteração, que tenham mais de uma conta ativa na tabela contas e que sejam do estado de São Paulo. Monte uma consulta para trazer apenas estes registros para que seja possível validar os dados do relatório.
+* Imagine que você esta efetuando testes em uma tela que tem dependência de dados de outra tela que não esta pronta, desta forma você precisa inserir dados manualmente na tabela. Escreva três INSERTs na tabela produtos com as colunas código, nome, descrição, valor e data de cadastro.
+
+#### O que você deve entregar?
+
+Respostas para todos os itens citados no tópico anterior.
