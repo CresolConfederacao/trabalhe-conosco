@@ -7,7 +7,7 @@
 - [Quais os próximos passos?](#quais-os-próximos-passos)
 - [Vagas](#vagas)
   - [Analista de sistemas](#analista-de-sistemas)
-  - [Desenvolvedor front-end](#desenvolvedor-front-end)
+  - [Desenvolvimento front-end](#desenvolvimento-front-end)
   - [Analista de testes](#analista-de-testes)
 
 
@@ -45,7 +45,7 @@ Criamos esse desafio como a primeira parte para o processo de seleção de anali
 #### Qual o problema que você deve resolver?
 
 Na empresa de TI **XPTO** existe uma demanda reprimida de ideias inovadoras. Existe uma necessidade de um sistema para gerenciar isso para dar vazão nas ideias que fazem sentido para a empresa.
-Os colaboradores desta empresa podem solicitar uma quantidade de horas limitada dentro de um período para elaborarem sua ideia de inovação. Essas horas devem ser solicitadas para o gestor responsável para efeitos de planejamento. Uma vez acordado isso com o gestor o colaborador elabora sua ideia e cadastra no sistema.
+Os colaboradores desta empresa podem solicitar uma quantidade de horas limitada dentro de um período para elaborarem sua ideia de inovação. Essas horas devem ser solicitadas para o(a) gestor(a) responsável para efeitos de planejamento. Uma vez acordado isso com o(a) gestor(a) o(a) colaborador(a) elabora sua ideia e cadastra no sistema.
 As ideias devem ficam expostas para que sejam votadas pelos usuários do sistema até que elas expirem, entretanto, algumas ideias são privadas e visíveis apenas para um grupo específico.
 Baseado nos detalhes da ideia submetida e nos benefícios propostos existe um grupo de pessoas autorizadas responsáveis por aprovar quais ideias podem ter uma prova de conceito desenvolvida.
 Para melhorar a experiência do cliente a empresa optou em liberar o acesso para um grupo seleto de clientes que também poderão acessar o sistema, utilizando contas em redes sociais, e cadastrar ideias.
@@ -61,9 +61,9 @@ Baseado no problema da empresa **XPTO** você como analista de sistemas precisa 
 
 Você pode utilizar outros artefatos que possam ajudar e complementar a expressar a solução do problema
 
-### Desenvolvedor front-end
+### Desenvolvimento front-end
 
-#### O que você vai fazer como desenvolvedor front-end na Cresol Confederação?
+#### O que você vai fazer em desenvolvimento front-end na Cresol Confederação?
 
 * Desenvolvimento de protótipo de página web
   - Baseado em caso de uso e/ou wireframe
@@ -105,7 +105,7 @@ Você pode utilizar outros artefatos que possam ajudar e complementar a expressa
 
 #### Qual o problema que você deve resolver?
 
-Neste repositório temos a pasta `desenvolvedor-frontend` que contém uma página web legada com suas dependências e o desafio consiste em criar uma proposta de modernização para esta página utilizando seus conhecimentos técnicos e de usabilidade.
+Neste repositório temos a pasta `desenvolvimento-frontend` que contém uma página web legada com suas dependências e o desafio consiste em criar uma proposta de modernização para esta página utilizando seus conhecimentos técnicos e de usabilidade.
 
 #### O que você deve entregar?
 
@@ -134,7 +134,7 @@ Você pode utilizar outros artefatos que possam ajudar e complementar a expressa
 * Temos uma alteração no sistema onde não é mais possível cadastrar pessoas jurídicas até o segundo dia útil do mês. Descreva todos cenários de teste possíveis para garantir a qualidade da alteração.
 * Temos um cenário onde até 15 anos é necessário preencher o campo responsável legal do cliente. Monte os cenários de teste para garantir a qualidade da aplicação.
 * Escreva cenários de teste de login no padrão Dado/ Quando/ Então. Onde o link de acesso é www.empresa.com.br/admin e usuário e senha válidos são admin e admin123.
-* Uma empresa tem um processo onde o desenvolvedor indica alguns testes necessários que devem ser realizados. Sabendo que esta empresa possuí uma extensa biblioteca de documentação. Descreva quais passos você executaria para garantir a qualidade nesta situação.
+* Uma empresa tem um processo onde o(a) desenvolvedor(a) indica alguns testes necessários que devem ser realizados. Sabendo que esta empresa possuí uma extensa biblioteca de documentação. Descreva quais passos você executaria para garantir a qualidade nesta situação.
 * Para efetuar um teste especifico, se faz necessário passar por uma outra parte do sistema que não houve alteração e o processo é muito complexo para que seja efetuado via tela. Monte um UPDATE para atualizar o estado da tabela usuário para ativo do usuário com login JOSE.
 * Imagine que você precisa validar um relatório que deve conter apenas os 10 usuários com maior salário que tenham seu estado ativo e em alteração, que tenham mais de uma conta ativa na tabela contas e que sejam do estado de São Paulo. Monte uma consulta para trazer apenas estes registros para que seja possível validar os dados do relatório.
 * Imagine que você esta efetuando testes em uma tela que tem dependência de dados de outra tela que não esta pronta, desta forma você precisa inserir dados manualmente na tabela. Escreva três INSERTs na tabela produtos com as colunas código, nome, descrição, valor e data de cadastro.
