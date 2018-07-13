@@ -1,0 +1,3 @@
+[submodule "desafio-desenvolvimento"]
+	path = desafio-desenvolvimento
+	url = https://github.com/CresolConfederacao/desafio-desenvolvimento.git
