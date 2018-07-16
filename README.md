@@ -8,6 +8,7 @@
 - [Vagas](#vagas)
   - [Analista de sistemas](#analista-de-sistemas)
   - [Desenvolvimento front-end](#desenvolvimento-front-end)
+  - [Desenvolvimento Java](#desenvolvimento-java)
   - [Analista de testes](#analista-de-testes)
 
 
@@ -113,6 +114,62 @@ Neste repositório temos a pasta `desenvolvimento-frontend` que contém uma pág
 * Página web modernizada com suas dependências
   - Funcional para navegação e testes
   - Testes unitários de frontend
+
+Você pode utilizar outros artefatos que possam ajudar e complementar a expressar a solução do problema
+
+### Desenvolvimento Java
+
+#### O que você vai fazer em desenvolvimento front-end na Cresol Confederação?
+
+* Desenvolvimento de novas soluções em Java
+  - Baseado em caso de uso
+* Desenvolvimento de testes unitários
+* Correções de bugs
+* Refatoração de código
+
+#### Conhecimentos
+
+* Necessários
+  - Experiência profissional com Java
+  - Experiência em:
+    - Hibernate/JPA
+    - MVC
+    - Rest webservices (criação e integração)
+    - Maven
+    - Git
+    - SQL
+  - Facilidade de comunicação com a equipe
+* Importantes
+  - Experiência ou conhecimento em:
+    - Struts
+    - Jasper Reports
+    - Proficiência com linux
+    - Proficiência com Eclipse IDE
+    - PostgreSQL
+* Diferenciais
+  - Experiência ou conhecimento em:
+    - GitLab
+    - Jenkins
+    - Metodologias e conceitos de desenvolvimento ágeis
+
+#### Qual o problema que você deve resolver?
+
+Neste repositório temos o sub módulo pasta `desenvolvimento-java`. Você deve inicializá-lo com o comando abaixo:
+```
+$ git submodule init
+```
+e atualizar com o comando:
+```
+$ git submodule update
+```
+
+Neste sub módulo temos um projeto Maven com um esqueleto do código que precisará desenvolver. Ainda dentro deste submódulo você vai encontrar o caso de uso que será seu guia para o desenvolvimento, que se encontra na pasta documentos.
+O desenvolvimento consiste em webservices para fazer uma simulação de empréstimo, consulta e remoção dessa simulação.
+
+#### O que você deve entregar?
+
+* Desenvolvimento do código Java baseado no caso de uso
+* Desenvolvimento de Rest Webservices para consultar e remover uma simulação de empréstimo, que não está no caso de uso
 
 Você pode utilizar outros artefatos que possam ajudar e complementar a expressar a solução do problema
 
