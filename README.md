@@ -14,7 +14,15 @@
 
 ## Sobre o desafio
 
-Criamos esse desafio como a primeira parte para o processo de seleção de analista de sistemas para a Cresol Confederação (Conheça mais sobre nós em nosso [site](http://www.cresolconfederacao.com.br)).
+Criamos esse desafio como a primeira parte para o processo de seleção de profissionais para atuar a Cresol Confederação (Conheça mais sobre nós em nosso [site](http://www.cresolconfederacao.com.br)).
+
+Estamos contratando profissionais para diversas áreas para fazerem parte de nossa equipe e contribuir no desenvolvimento e qualidade em novas soluções e melhorias do nosso Core Banking próprio e de sistemas acessórios, todos eles em Java.
+
+O que fazemos aqui impacta diretamente na vida dos pequenos agricultores e na agricultura familiar.
+
+Temos um ambiente com tranquilidade para trabalhar e com muitos desafios para alcançar, onde você terá muita importância dentro da equipe exercendo seu papel.
+
+Buscamos profissionais que goste de desafios, saiba lidar com metas e que tenha atitude para fazer as coisas acontecerem.
 
 ### Como participar?
 
