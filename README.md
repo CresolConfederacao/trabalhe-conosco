@@ -127,7 +127,7 @@ Você pode utilizar outros artefatos que possam ajudar e complementar a expressa
 
 ### Desenvolvimento Java
 
-#### O que você vai fazer em desenvolvimento front-end na Cresol Confederação?
+#### O que você vai fazer em desenvolvimento Java na Cresol Confederação?
 
 * Desenvolvimento de novas soluções em Java
   - Baseado em caso de uso
