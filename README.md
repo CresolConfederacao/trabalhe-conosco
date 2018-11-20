@@ -7,6 +7,7 @@
 - [Quais os próximos passos?](#quais-os-próximos-passos)
 - [Vagas](#vagas)
   - [Analista de sistemas](#analista-de-sistemas)
+  - [Analista de dados](#analista-de-dados)
   - [Desenvolvimento front-end](#desenvolvimento-front-end)
   - [Desenvolvimento Java](#desenvolvimento-java)
   - [Analista de testes](#analista-de-testes)
@@ -69,6 +70,100 @@ Baseado no problema da empresa **XPTO** você como analista de sistemas precisa 
 * Esboço de caso de uso
 
 Você pode utilizar outros artefatos que possam ajudar e complementar a expressar a solução do problema
+
+### Analista de dados
+
+#### O que você vai fazer como analista de dados na Cresol Confederação?
+
+Descrição das atividades:
+
+* levantar as necessidades dos usuários quanto a visualização de informações gerenciais e indicadores que os mesmos necessitam;
+* construir fonte de dados, publicá-las na plataforma de B.I. e garantir a qualidade das mesmas;
+* construir integrações para enriquecer as fontes de dados publicadas na plataforma de B.I. e garantir a qualidade das mesmas;
+* construir visualizações, dashboards e relatórios (estáticos ou dinâmicos) na plataforma de B.I. e garantir a consistência dos mesmos;
+* atuar na limpeza, enriquecimento, modelagem e tranformação dos dados, utilizando fontes de dados já existentes, ou fontes de dados externas;
+* auxiliar tecnicamente os times quando consultado sobre os dados e o funcionamento das integrações, fontes de dados e visualizações;
+
+Conhecimentos necessários:
+
+* Experiência com bancos de dados, modelo relacional;
+* Experiência com criação e manutenção de consultas SQL;
+* Experiência com construção de ETLs;
+* Experiência com desenvolvimento de scripts em alguma linguagem (por exemplo Python, Ruby, Bash);
+* Experiência com manipulação de arquivos em formatos CSV, XML, JSON;
+* Experiência com alguma plataforma de B.I.
+* Experiência com criação de dashboards, gráficos;
+* Lógica de programação;
+
+Conhecimentos desejáveis (diferencial):
+
+* Trabalhar com grande volume de dados;
+* Engenharia de software;
+* PostgreSQL;
+* Tableau;
+* Noções de estatística;
+
+#### Qual o problema que você deve resolver?
+
+Neste repositório temos a pasta `desafio-dados` que contém um arquivo
+compactado (gzip) de log de um serviço de hospedagem e deste arquivo
+necessitamos de algumas informações estatísticas para avaliarmos se
+estamos atingindo nossos objetivos com os serviços hospedados nele.
+
+Este arquivo de log é de um servidor
+[Apache](http://httpd.apache.org/docs/current/mod/mod_log_config.html),
+e está no formado conhecido como [Combined Log
+Format](https://httpd.apache.org/docs/2.4/logs.html#combined):
+
+    "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\""
+
+Exemplo:
+
+    173.140.226.76 - Reichert5085 305 [2018-11-08T12:57:24Z] "GET /convergence/intuitive/generate" 301 90773 "http://www.regionalexploit.biz/next-generation/extend" "Opera/10.78 (Macintosh; U; Intel Mac OS X 10_5_1; en-US) Presto/2.9.333 Version/12.00"
+
+Este sistema possui uma série de "endpoints", que são a primeira parte
+do caminho da URL requisitada. 
+Olhando o exemplo acima na parte `GET /convergence/intuitive/generate`
+o "endpoint" seria `/convergence`.
+
+Enumeramos abaixo a lista de informações que precisamos, entretanto o
+mínimo que necessitamos são de 4 (quatro):
+
+- os 5 (cinco) usuários que mais efetuaram requisições;
+- os 10 (dez) browsers mais utilizados;
+- os endereços de rede (classe C) com maior quantidade de requisições;
+- a hora com mais acesso no dia;
+- a hora com a maior quantidade de bytes;
+- o endpoint com maior consumo de bytes;
+- a quantidade de bytes por minuto;
+- a quantidade de bytes por hora;
+- a quantidade de usuários por minuto;
+- a quantidade de usuários por hora;
+- a quantidade de requisições que tiveram erro de cliente, agrupadas por erro;
+- a quantidade de requisições que tiveram sucesso;
+- a quantidade de requisições que foram redirecionadas;
+
+#### O que você deve entregar?
+
+A solução pode ser feita em alguma linguagem como Python, Ruby, Bash,
+Java, por exemplo, ou ainda usando alguma ferramenta de ETL como
+Pentaho Kettle ou Tableau Prep. Você precisa entregar um arquivo CSV
+onde cada campo do arquivo representa uma informação coletada conforme
+enumeração no tópico anterior. É desejável, ou seja, não é
+obrigatório, que cada linha do arquivo represente dados para uma data,
+ou seja, se o arquivo possuir registros de log de mais de 1 (um) dia,
+as informações apresentadas precisam estar agrupadas por dia.
+
+Além do script que extrai os dados ou o arquivo de transformação do
+Kettle caso utilize ele, aguardamos também uma documentação orientando
+como executar o processo e você pode utilizar outros artefatos que
+possam ajudar e complementar a expressar a solução do problema.
+
+Todos os artefatos devem ser encaminhados para 
+`guedes arroba cresolconfederacao.com.br` 
+com cópia para `evandro arroba cresolconfederacao.com.br`, com o
+titulo "Desafio: Analista de dados".
+
 
 ### Desenvolvimento front-end
 
