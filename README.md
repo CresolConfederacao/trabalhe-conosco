@@ -82,7 +82,7 @@ Descrição das atividades:
 * construir integrações para enriquecer as fontes de dados publicadas na plataforma de B.I. e garantir a qualidade das mesmas;
 * construir visualizações, dashboards e relatórios (estáticos ou dinâmicos) na plataforma de B.I. e garantir a consistência dos mesmos;
 * atuar na limpeza, enriquecimento, modelagem e tranformação dos dados, utilizando fontes de dados já existentes, ou fontes de dados externas;
-* auxiliar tecnicamente os times quando consultado sobre os dados e o funcionamento das integrações, fontes de dados e visualizações;
+* auxiliar tecnicamente os times quando ocorrerem dúvidas sobre os dados e o funcionamento das integrações, fontes de dados e visualizações;
 
 Conhecimentos necessários:
 
@@ -127,9 +127,9 @@ Olhando o exemplo acima na parte `GET /convergence/intuitive/generate`
 o "endpoint" seria `/convergence`.
 
 Enumeramos abaixo a lista de informações que precisamos, entretanto o
-mínimo que necessitamos são de 4 (quatro):
+mínimo que necessitamos são de 5 (cinco):
 
-- os 5 (cinco) usuários que mais efetuaram requisições;
+- os 5 (cinco) logins que mais efetuaram requisições;
 - os 10 (dez) browsers mais utilizados;
 - os endereços de rede (classe C) com maior quantidade de requisições;
 - a hora com mais acesso no dia;
