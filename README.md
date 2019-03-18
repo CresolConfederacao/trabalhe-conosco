@@ -11,6 +11,7 @@
   - [Desenvolvimento front-end](#desenvolvimento-front-end)
   - [Desenvolvimento Java](#desenvolvimento-java)
   - [Analista de testes](#analista-de-testes)
+  - [Analista BPM](#analista-bpm)
 
 
 ## Sobre o desafio
@@ -122,7 +123,7 @@ Exemplo:
     173.140.226.76 - Reichert5085 305 [2018-11-08T12:57:24Z] "GET /convergence/intuitive/generate" 301 90773 "http://www.regionalexploit.biz/next-generation/extend" "Opera/10.78 (Macintosh; U; Intel Mac OS X 10_5_1; en-US) Presto/2.9.333 Version/12.00"
 
 Este sistema possui uma série de "endpoints", que são a primeira parte
-do caminho da URL requisitada. 
+do caminho da URL requisitada.
 Olhando o exemplo acima na parte `GET /convergence/intuitive/generate`
 o "endpoint" seria `/convergence`.
 
@@ -159,8 +160,8 @@ Kettle caso utilize ele, aguardamos também uma documentação orientando
 como executar o processo e você pode utilizar outros artefatos que
 possam ajudar e complementar a expressar a solução do problema.
 
-Todos os artefatos devem ser encaminhados para 
-`guedes arroba cresolconfederacao.com.br` 
+Todos os artefatos devem ser encaminhados para
+`guedes arroba cresolconfederacao.com.br`
 com cópia para `evandro arroba cresolconfederacao.com.br`, com o
 titulo "Desafio: Analista de dados".
 
@@ -302,3 +303,33 @@ Você pode utilizar outros artefatos que possam ajudar e complementar a expressa
 #### O que você deve entregar?
 
 Respostas para todos os itens citados no tópico anterior.
+
+### Analista BPM
+
+#### O que você vai fazer como analista BPM na Cresol Confederação?
+
+* Mapeamento dos processos do negócio
+* Parametrização do sistema BPM: criação do workflows, formulários, etc
+* Treinamento aos usuários
+* Acompanhamento junto aos usuários durante etapa de entrada em produção do processo
+* Manutenção e evolução dos processos
+
+#### Qual o problema que você deve resolver?
+
+Na empresa de TI **XPTO** existe uma demanda reprimida de ideias inovadoras. Existe uma necessidade de um sistema para gerenciar isso para dar vazão nas ideias que fazem sentido para a empresa.
+Os colaboradores desta empresa podem solicitar uma quantidade de horas limitada dentro de um período para elaborarem sua ideia de inovação. Essas horas devem ser solicitadas para o(a) gestor(a) responsável para efeitos de planejamento. Uma vez acordado isso com o(a) gestor(a) o(a) colaborador(a) elabora sua ideia e cadastra no sistema.
+As ideias devem ficam expostas para que sejam votadas pelos usuários do sistema até que elas expirem, entretanto, algumas ideias são privadas e visíveis apenas para um grupo específico.
+Baseado nos detalhes da ideia submetida e nos benefícios propostos existe um grupo de pessoas autorizadas responsáveis por aprovar quais ideias podem ter uma prova de conceito desenvolvida.
+Para melhorar a experiência do cliente a empresa optou em liberar o acesso para um grupo seleto de clientes que também poderão acessar o sistema, utilizando contas em redes sociais, e cadastrar ideias.
+Depois que uma ideia é aprovada ela deve ser cadastrada como uma atividade para desenvolvimento no sistema de gestão de demandas interna da empresa.
+
+#### O que você deve entregar?
+
+* Imagem do processo em BPM
+* Documento especificando o que contém em cada etapa do processo
+  - Formulário (quais campos)
+  - Integração com outros sistemas
+  - Digitalização
+  - SLAs
+  - Papéis
+  - etc
