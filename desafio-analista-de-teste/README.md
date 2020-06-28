@@ -1,6 +1,7 @@
 ### Analista de testes
 
-Para uma melhor visualização foi dividido em duas pastas, Topicos_1_4_features, que contém os cenários de teste em formato de features e a Topicos_6_8_SQL que contém os SQL. Para os SQL o banco escolhido foi PostgreSQL.   
+Para uma melhor visualização foi dividido em duas pastas, Topicos_1_4_features, que contém os cenários de teste em formato de features e a Topicos_6_8_SQL que contém os SQL.     
+  Para os SQL o banco escolhido foi PostgreSQL.   
 A resposta de todos os tópicos se encontram aqui de uma maneira mais simplificada.
 
 
