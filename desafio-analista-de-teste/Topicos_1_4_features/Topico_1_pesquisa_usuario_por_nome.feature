@@ -1,6 +1,6 @@
 # language: pt
 ## Em um determinado cenário, temos um novo campo para a pesquisa de usuário por nome. Descreva os cenários de teste possíveis para garantir a qualidade desta alteração.
-Funcionalidade: Pesquisa usuário por nome
+Funcionalidade: Pesquisar usuário por nome
 
   Cenário: Pesquisar campo em branco
     Dado que há ao menos um usuário cadastrado no banco de dados
@@ -13,9 +13,9 @@ Funcionalidade: Pesquisa usuário por nome
       | nome                |
       | José Alberto Coelho |
     Quando o usuário pesquisar "Coelho"
-    Então na pesquisa é obrigatório conter o usuário José Luiz Coelho
+    Então na pesquisa é obrigatório conter o usuário José Alberto Coelho
 
-  Cenário: Pesquisar diacrítico
+  Cenário: Pesquisar utilizando diacrítico
     Dado que no banco contenha:
       | nome |
       | José |
