@@ -1,11 +1,11 @@
-CREATE TABLE estado
+CREATE TABLE ESTADO
 (
     id serial NOT NULL,
     nome text,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE usuario
+CREATE TABLE USUARIO
 (
     id serial NOT NULL,
     nome text,
@@ -21,7 +21,7 @@ CREATE TABLE usuario
         NOT VALID
 );
 
-CREATE TABLE conta
+CREATE TABLE CONTA
 (
     id serial NOT NULL,
     ativa boolean,
