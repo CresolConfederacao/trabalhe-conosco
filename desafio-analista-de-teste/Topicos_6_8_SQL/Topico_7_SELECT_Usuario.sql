@@ -21,7 +21,7 @@ CREATE TABLE usuario
         NOT VALID
 );
 
-CREATE TABLE .conta
+CREATE TABLE conta
 (
     id serial NOT NULL,
     ativa boolean,
