@@ -1,12 +1,12 @@
 ### Analista de testes
 
  
-A respostas dos tópicos 1 à 4 se encontram nesse arquivo de uma maneira mais simplificada ou em formato de .features
+A respostas dos tópicos 1 ao 4 se encontram nesse arquivo de uma maneira mais simplificada ou em formato .feature
 
 
 ### Em um determinado cenário, temos um novo campo para a pesquisa de usuário por nome. Descreva os cenários de teste possíveis para garantir a qualidade desta alteração.
 
-#### Funcionalidade: Pesquisa usuário por nome
+#### Funcionalidade: Pesquisar usuário por nome
 Cenário: Pesquisar campo em branco          
 Dado que há ao menos um usuário cadastrado no banco de dados    
 E que usuário não digitou nada no campo pesquisar   
@@ -18,13 +18,13 @@ Cenário: Pesquisar parte do nome
 Dado que no banco contenha:  
 ``` 
 |nome                |    
-|José Alberto Coelho | 
+|José Luiz Coelho    | 
 ```   
 Quando o usuário pesquisar "Coelho"   
 Então na pesquisa é obrigatório conter o usuário José Luiz Coelho
 
 
-Cenário: Pesquisar diacrítico   
+Cenário: Pesquisar utilizando diacrítico   
 Dado que no banco contenha:
 ```   
 | nome |    
@@ -83,7 +83,7 @@ Então o cadastro é bem-sucedido
 
 #### Funcionalidade: Preenchimento campo responsável
 
-Cenário: Usuário tem menos de 14 anos   
+Cenário: Usuário tem menos de 15 anos  
 Dado que a idade do usuário seja menor do que 15    
 Quando o usuário for se cadastrar   
 Então irá aparecer um campo de responsável para preencher   
@@ -96,7 +96,7 @@ Então o campo de responsável não irá aparecer
 Cenário: O usuário faz 15 anos no dia do cadastro   
 Dado que o usuário se cadastre no dia do seu aniversário de 15 anos   
 Quando o usuário for se cadastrar   
-Então o campo de responsável não irá aparecer   
+Então irá aparecer um campo de responsável para preencher   
 
 ### Escreva cenários de teste de login no padrão Dado/ Quando/ Então. Onde o link de acesso é www.empresa.com.br/admin e usuário e senha válidos são admin e admin123.
  
@@ -114,9 +114,9 @@ Então aparece um Bem-vindo na tela
 
 
 
-Esquema do Cenário: Aviso campo não preenchido
+Esquema do Cenário: Aviso "campo não preenchido"  
 Dado que usuário não preencher um \<campo>    
-Quando o usuário clicar em entrar
+Quando o usuário clicar em entrar   
 Então aparece um aviso com a mensagem "Informe os seus dados". 
 
     Exemplos: 
@@ -126,9 +126,9 @@ Então aparece um aviso com a mensagem "Informe os seus dados".
 
 
 
-  Esquema do Cenário: Aviso dados não conferem    
+  Esquema do Cenário: Aviso "dados não conferem"    
     Dado que usuário preenche o \<campo> com um dado inválido    
-    Quando o usuário clicar em entrar 
+    Quando o usuário clicar em entrar   
     Então aparece um aviso com a mensagem "Os dados de acesso que você informou não conferem".  
 
     Exemplos: 

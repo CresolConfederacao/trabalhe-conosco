@@ -1,7 +1,7 @@
 ### Analista de testes
 
 Cada SQL contém as querys utilizadas para responder esses tópicos. 
-A respostas do tópico 6 à 8 se encontram nesse arquivo de uma maneira mais simplificada
+A respostas dos tópicos 6 ao 8 se encontram nesse arquivo de uma maneira mais simplificada
 
 
 ### Para efetuar um teste especifico, se faz necessário passar por uma outra parte do sistema que não houve alteração e o processo é muito complexo para que seja efetuado via tela. Monte um UPDATE para atualizar o estado da tabela usuário para ativo do usuário com login JOSE.
