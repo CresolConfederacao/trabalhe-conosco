@@ -139,7 +139,10 @@ Então aparece um aviso com a mensagem "Informe os seus dados".
 
 ### Uma empresa tem um processo onde o(a) desenvolvedor(a) indica alguns testes necessários que devem ser realizados. Sabendo que esta empresa possuí uma extensa biblioteca de documentação. Descreva quais passos você executaria para garantir a qualidade nesta situação.
 
-Analisaria se os testes fazem sentindo e se abrange todos os testes necessários, olharia na documentação se já existe os casos de testes para esses testes pedidos pelo desenvolvedor, caso não, escreverias os casos de testes, testaria, escreveria os bugs reports e passaria para o desenvolvedor.
+
+Inicialmente analisaria se os testes estão de acordo com a biblioteca de documentação. Caso não estejam de acordo, ou estejam incompletos, conversaria com o(a) desenvolvedor(a) para que possamos analisar juntos e melhorá-los. Caso eles estejam documentados, os alteraria nessa documentação para que no futuro os testes sejam feitos da maneira correta. Se seja necessário criar novos testes para complementar, escreveria estes tendo como base a biblioteca de documentação.
+Após os casos de teste alterados/criados, escreveria os bug reports caso necessário, e os passaria para o desenvolvedor.
+
 
 ### Para efetuar um teste especifico, se faz necessário passar por uma outra parte do sistema que não houve alteração e o processo é muito complexo para que seja efetuado via tela. Monte um UPDATE para atualizar o estado da tabela usuário para ativo do usuário com login JOSE.
 ```
