@@ -1,0 +1,19 @@
+Requisito Funcional
+> Permitir que o colaborador cadastre ideias no sistema
+> Sistema deverá expor a ideia para votação pelos usuários
+> Aprovação de ideia para prova de conceito
+> Cadastro de grupos de usuarios/pessoas/clientes
+> acesso ao sistema via redes sociais
+
+Requisito Não Funcional
+> Solicitar horas para o gestor
+> Elaborar ideia
+> Exibir detalhes da ideia e os beneficios 
+> Melhorar experiencia do cliente
+
+Regras 
+> As ideias devem ficar expostas até a data de vencimento
+> Ideias privadas visiveis para grupos de usuarios
+
+
+
