@@ -1,0 +1,3 @@
+Considerações:
+
+Procurei dar uma abordagem mais moderna e diferenciada para o sistema proposto, me baseando em funcionalidades de redes sociais, as quais acredito que se adequariam muito bem na modelagem de um sistema de ideias inovadoras. Procurei também separar em vários artefatos visando a paralelização de desenvolvimento e o conceito de entrega contínua. Logicamente que se trata de um esboço e portando, teria muita coisa para ser aprimorada e ajustada, mas como a ideia inicial de um protótipo acredito que ficou interessante.
